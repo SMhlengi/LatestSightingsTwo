@@ -1,0 +1,960 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B84B73E-A6AD-40C6-BDD1-60B94F126235}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Revamp_LatestSightings</RootNamespace>
+    <AssemblyName>Revamp_LatestSightings</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CuteWebUI.AjaxUploader, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bc00d4b0e43ec38d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CuteWebUI.AjaxUploader.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetHelpers.UltimateImageResizer">
+      <HintPath>..\..\..\..\Downloads\DotNetHelpers.UltimateImageResizer\DotNetHelpers.UltimateImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Intelligencia.UrlRewriter, Version=2.0.0.9, Culture=neutral, PublicKeyToken=0573f3650687980d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Intelligencia.UrlRewriter.dll</HintPath>
+    </Reference>
+    <Reference Include="LatestSightingsLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\old_desktop\Documents\GitHub\LatestSightings\LatestSightingsLibrary\bin\Debug\LatestSightingsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aboutus.aspx" />
+    <Content Include="AddImage.aspx" />
+    <Content Include="addVideo.ascx" />
+    <Content Include="ad_300by50.ascx" />
+    <Content Include="AjaxOperation.aspx" />
+    <Content Include="blog.aspx" />
+    <Content Include="bloglist.aspx" />
+    <Content Include="categoryBlogList.aspx" />
+    <Content Include="completeProfile.ascx" />
+    <Content Include="contactus.aspx" />
+    <Content Include="content.aspx" />
+    <Content Include="css\300by50Add.css" />
+    <Content Include="css\aboutUsOverRide.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\bloglist.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\categoryBlogList.css" />
+    <Content Include="css\component.css" />
+    <Content Include="css\contactusOverRide.css" />
+    <Content Include="css\dashboardOveride.css" />
+    <Content Include="css\dataTables.responsive.css" />
+    <Content Include="css\docs.min.css" />
+    <Content Include="css\enquireForm.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\forgottenPasswordOverRide.css" />
+    <Content Include="css\gallerymodal.css" />
+    <Content Include="css\GoogleApisFonts.css" />
+    <Content Include="css\homepageTings.css" />
+    <Content Include="css\hover-min.css" />
+    <Content Include="css\jplayer.blue.monday.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery-ui.min.css" />
+    <Content Include="css\jquery.dataTables.min.css" />
+    <Content Include="css\jquery.multilevelpushmenu.css" />
+    <Content Include="css\LatestBlogs.css" />
+    <Content Include="css\latestGalleries.css" />
+    <Content Include="css\loginOverRide.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\morris.css" />
+    <Content Include="css\multistep-indicator.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.carousel2.css" />
+    <Content Include="css\owl.theme.css" />
+    <Content Include="css\parkSightingsOverRide.css" />
+    <Content Include="css\prettyCheckable.css" />
+    <Content Include="css\registerOverRide.css" />
+    <Content Include="css\resetpasswordOverRide.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\responsivedataTables.responsive.css" />
+    <Content Include="css\responsive_4_18_2015.css" />
+    <Content Include="css\rfu.css" />
+    <Content Include="css\searchResults.css" />
+    <Content Include="css\sightingsOverRide.css" />
+    <Content Include="css\Site.css" />
+    <Content Include="css\style-blue.css" />
+    <Content Include="css\style-gray.css" />
+    <Content Include="css\style-orange.css" />
+    <Content Include="css\style-red.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\styleThree.css" />
+    <Content Include="css\styleTwo.css" />
+    <Content Include="css\style_backup_4_18_2015.css" />
+    <Content Include="css\style.datatables.css" />
+    <Content Include="css\sweetalert.css" />
+    <Content Include="css\swiper.css" />
+    <Content Include="css\termsOverRide.css" />
+    <Content Include="css\ting.css" />
+    <Content Include="css\topEarningVideos.css" />
+    <Content Include="css\tvLodge.css" />
+    <Content Include="css\userFinancials.css" />
+    <Content Include="css\videopreview.css" />
+    <Content Include="dashboard.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="financialsTest.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="forgottenPassword.aspx" />
+    <Content Include="galleries.aspx" />
+    <Content Include="galleryfilter.aspx" />
+    <Content Include="galleryview.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="holidays.aspx" />
+    <Content Include="htings.aspx" />
+    <Content Include="imageModal.aspx" />
+    <Content Include="imagepreview.aspx" />
+    <Content Include="images\299.GIF" />
+    <Content Include="images\332.GIF" />
+    <Content Include="images\333.GIF" />
+    <Content Include="images\350.GIF" />
+    <Content Include="images\466.GIF" />
+    <Content Include="images\712.GIF" />
+    <Content Include="images\76.GIF" />
+    <Content Include="images\about-650x650.gif" />
+    <Content Include="images\aboutuspic.jpg" />
+    <Content Include="images\ads-300x250.gif" />
+    <Content Include="images\AllTings.jpg" />
+    <Content Include="images\app.gif" />
+    <Content Include="images\author-100x100.gif" />
+    <Content Include="images\bg-hd.jpg" />
+    <Content Include="images\clients-190x65.gif" />
+    <Content Include="images\comment-70x70.gif" />
+    <Content Include="images\downloadappimg.png" />
+    <Content Include="images\Download_on_the_App_Store_Badge_US-UK_135x40.png" />
+    <Content Include="images\Download_on_the_App_Store_Badge_US-UK_135x40.svg" />
+    <Content Include="images\en_generic_rgb_wo_60.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\FBandTwitter.jpg" />
+    <Content Include="images\FBComments.jpg" />
+    <Content Include="images\FBComments_Sml.jpg" />
+    <Content Include="images\flipmenu-600x600.gif" />
+    <Content Include="images\gallery-720x550.gif" />
+    <Content Include="images\grid-550x310.gif" />
+    <Content Include="images\ic-greencar.svg" />
+    <Content Include="images\ic-orangecar.svg" />
+    <Content Include="images\ic-redcar.svg" />
+    <Content Include="images\ic-starline.svg" />
+    <Content Include="images\ic_star.svg" />
+    <Content Include="images\jplayer.blue.monday.jpg" />
+    <Content Include="images\jplayer.blue.monday.seeking.gif" />
+    <Content Include="images\jplayer.blue.monday.video.play.png" />
+    <Content Include="images\latestsightings.png" />
+    <Content Include="images\loader9.gif" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\LodgeMap1.jpg" />
+    <Content Include="images\lodges3.jpg" />
+    <Content Include="images\logo-horizontal-new.png" />
+    <Content Include="images\masonry-600x1200.gif" />
+    <Content Include="images\masonry-600x300.gif" />
+    <Content Include="images\masonry-600x600 - Copy.gif" />
+    <Content Include="images\NgwenyaLodge.jpg" />
+    <Content Include="images\partnership1.png" />
+    <Content Include="images\partnership2.png" />
+    <Content Include="images\partnership3.png" />
+    <Content Include="images\placestostay.jpg" />
+    <Content Include="images\postslider-879x487.gif" />
+    <Content Include="images\postslidert-80x80.gif" />
+    <Content Include="images\recent-60x60.gif" />
+    <Content Include="images\relatedblog-450x450.gif" />
+    <Content Include="images\relatedposts-720x720.gif" />
+    <Content Include="images\services-590x375.gif" />
+    <Content Include="images\slideshow-1140x390.gif" />
+    <Content Include="images\socialenginelogo.png" />
+    <Content Include="images\sprites-sfa68604977.png" />
+    <Content Include="images\ting_arrow_indicator_down.png" />
+    <Content Include="images\ting_arrow_indicator_up.png" />
+    <Content Include="images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="images\ui-icons_222222_256x240.png" />
+    <Content Include="images\ui-icons_228ef1_256x240.png" />
+    <Content Include="images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="images\ui-icons_ffffff_256x240.png" />
+    <Content Include="images\video-16x9.gif" />
+    <Content Include="images\WindowsStore_badge_en_English_Black_large_120x462.png" />
+    <Content Include="images\WindowsStore_badge_en_English_Black_small_154x40.png" />
+    <Content Include="js\2owl.carousel.min.js" />
+    <Content Include="js\adsbygoogle.js" />
+    <Content Include="js\ajax-loader.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\bootstrap.youtubepopup.min.js" />
+    <Content Include="js\classie.js" />
+    <Content Include="js\completeProfile.js" />
+    <Content Include="js\enqureForm.js" />
+    <Content Include="js\gallery.js" />
+    <Content Include="js\galleryviewmodal.js" />
+    <Content Include="js\homePage.js" />
+    <Content Include="js\homePageBillboard.js" />
+    <Content Include="js\homePageLatestBlogs.js" />
+    <Content Include="js\homepageLattestGalleries.js" />
+    <Content Include="js\homePageTings.js" />
+    <Content Include="js\imagesloaded.pkgd.min.js" />
+    <Content Include="js\isotope.pkgd.min.js" />
+    <Content Include="js\Jplayer.swf" />
+    <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery-uiv3.min.js" />
+    <Content Include="js\jquery-uiv4.min.js" />
+    <Content Include="js\jquery.cookies.js" />
+    <Content Include="js\jquery.dataTables.min.js" />
+    <Content Include="js\jquery.fitvids.js" />
+    <Content Include="js\jquery.isotope.min.js" />
+    <Content Include="js\jquery.jplayer.min.js" />
+    <Content Include="js\jquery.magnific-popup.min.js" />
+    <Content Include="js\jquery.migrate.js" />
+    <Content Include="js\knockout-3.3.0.js" />
+    <Content Include="js\LodgeTV.js" />
+    <Content Include="js\LodgeWeb.js" />
+    <Content Include="js\mlpushmenu.js" />
+    <Content Include="js\modernizr-2.6.2.js" />
+    <Content Include="js\modernizr.custom.js" />
+    <Content Include="js\modernizr.js" />
+    <Content Include="js\navigate.js" />
+    <Content Include="js\numeral.min.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\parkSightings.js" />
+    <Content Include="js\plugins-scroll.js" />
+    <Content Include="js\prettyCheckable.min.js" />
+    <Content Include="js\randomBlue.js" />
+    <Content Include="js\randomGray.js" />
+    <Content Include="js\randomOrange.js" />
+    <Content Include="js\randomRed.js" />
+    <Content Include="js\responsiveAdsByGoogle.js" />
+    <Content Include="js\resumable.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="js\sighting.js" />
+    <Content Include="js\SightingTingInfo.js" />
+    <Content Include="js\sweetalert.min.js" />
+    <Content Include="js\swiper.js" />
+    <Content Include="js\tvLodge_Tings.js" />
+    <Content Include="js\Upload.js" />
+    <Content Include="js\validateVideoDetails.js" />
+    <Content Include="js\validationLib.js" />
+    <Content Include="js\waypoints.min.js" />
+    <Content Include="js\widgets.js" />
+    <Content Include="js\youtubeSearchResults.js" />
+    <Content Include="lodges.aspx" />
+    <Content Include="lodges.html" />
+    <Content Include="login.aspx" />
+    <Content Include="parksightings.aspx" />
+    <Content Include="partnership.aspx" />
+    <Content Include="privacypolicy.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="resetpassword.aspx" />
+    <Content Include="ResizeImageTest.aspx" />
+    <Content Include="resumableFileUpload.aspx" />
+    <Content Include="searchResults.aspx" />
+    <Content Include="sightings.aspx" />
+    <Content Include="terms.aspx" />
+    <Content Include="termsAndConditions.ascx" />
+    <Content Include="ting.aspx" />
+    <Content Include="tings2.aspx" />
+    <Content Include="tvlodge.aspx" />
+    <Content Include="uc_addcontent.ascx" />
+    <Content Include="uc_AddImage.ascx" />
+    <Content Include="uc_billboard.ascx" />
+    <Content Include="uc_categoryOtherRelatedStories.ascx" />
+    <Content Include="uc_dashboard_resumable_file_upload.ascx" />
+    <Content Include="uc_downloadLatestApp.ascx" />
+    <Content Include="uc_enquireForm.ascx" />
+    <Content Include="uc_FeaturedCategories.ascx" />
+    <Content Include="uc_Footer.ascx" />
+    <Content Include="uc_homeLatestBlogs.ascx" />
+    <Content Include="uc_homepageLatestGalleries.ascx" />
+    <Content Include="uc_homepageTings.ascx" />
+    <Content Include="uc_imageSearchResults.ascx" />
+    <Content Include="uc_JavaScripts.ascx" />
+    <Content Include="uc_LatestBlogs.ascx" />
+    <Content Include="uc_latestGalleris.ascx" />
+    <Content Include="uc_resumableFileUpload.ascx" />
+    <Content Include="uc_SiteHeader.ascx" />
+    <Content Include="uc_SiteMap.ascx" />
+    <Content Include="uc_styleSheetOverRidesBasedOnUrl.ascx" />
+    <Content Include="uc_StyleSheets.ascx" />
+    <Content Include="uc_tings.ascx" />
+    <Content Include="uc_TopMonthlyContributors.ascx" />
+    <Content Include="uc_top_earning_videos.ascx" />
+    <Content Include="uc_top_stories.ascx" />
+    <Content Include="uc_tvLodge_Tings.ascx" />
+    <Content Include="uc_videoSearchResults.ascx" />
+    <Content Include="uc_video_packages.ascx" />
+    <Content Include="uc_viewFinancials.ascx" />
+    <Content Include="UserFinancials.aspx" />
+    <Content Include="UserGraphs.aspx" />
+    <Content Include="VideoItemData.aspx" />
+    <Content Include="videoList.ascx" />
+    <Content Include="videopreview.aspx" />
+    <Content Include="VideosData.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aboutus.aspx.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aboutus.aspx.designer.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddImage.aspx.cs">
+      <DependentUpon>AddImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddImage.aspx.designer.cs">
+      <DependentUpon>AddImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addVideo.ascx.cs">
+      <DependentUpon>addVideo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addVideo.ascx.designer.cs">
+      <DependentUpon>addVideo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ad_300by50.ascx.cs">
+      <DependentUpon>ad_300by50.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad_300by50.ascx.designer.cs">
+      <DependentUpon>ad_300by50.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxOperation.aspx.cs">
+      <DependentUpon>AjaxOperation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxOperation.aspx.designer.cs">
+      <DependentUpon>AjaxOperation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="blog.aspx.cs">
+      <DependentUpon>blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="blog.aspx.designer.cs">
+      <DependentUpon>blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bloglist.aspx.cs">
+      <DependentUpon>bloglist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bloglist.aspx.designer.cs">
+      <DependentUpon>bloglist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="categoryBlogList.aspx.cs">
+      <DependentUpon>categoryBlogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categoryBlogList.aspx.designer.cs">
+      <DependentUpon>categoryBlogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="completeProfile.ascx.cs">
+      <DependentUpon>completeProfile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="completeProfile.ascx.designer.cs">
+      <DependentUpon>completeProfile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="content.aspx.cs">
+      <DependentUpon>content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="content.aspx.designer.cs">
+      <DependentUpon>content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer.cs" />
+    <Compile Include="DeclineVideoStatus.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encription.cs" />
+    <Compile Include="financialsTest.aspx.cs">
+      <DependentUpon>financialsTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="financialsTest.aspx.designer.cs">
+      <DependentUpon>financialsTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forgottenPassword.aspx.cs">
+      <DependentUpon>forgottenPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgottenPassword.aspx.designer.cs">
+      <DependentUpon>forgottenPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="galleries.aspx.cs">
+      <DependentUpon>galleries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galleries.aspx.designer.cs">
+      <DependentUpon>galleries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="galleryfilter.aspx.cs">
+      <DependentUpon>galleryfilter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galleryfilter.aspx.designer.cs">
+      <DependentUpon>galleryfilter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GallerySeachFilters.cs" />
+    <Compile Include="galleryview.aspx.cs">
+      <DependentUpon>galleryview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galleryview.aspx.designer.cs">
+      <DependentUpon>galleryview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="holidays.aspx.cs">
+      <DependentUpon>holidays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="holidays.aspx.designer.cs">
+      <DependentUpon>holidays.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="htings.aspx.cs">
+      <DependentUpon>htings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="htings.aspx.designer.cs">
+      <DependentUpon>htings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Image.cs" />
+    <Compile Include="imageModal.aspx.cs">
+      <DependentUpon>imageModal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="imageModal.aspx.designer.cs">
+      <DependentUpon>imageModal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="imagepreview.aspx.cs">
+      <DependentUpon>imagepreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="imagepreview.aspx.designer.cs">
+      <DependentUpon>imagepreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lodges.aspx.cs">
+      <DependentUpon>lodges.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lodges.aspx.designer.cs">
+      <DependentUpon>lodges.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="parksightings.aspx.cs">
+      <DependentUpon>parksightings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="parksightings.aspx.designer.cs">
+      <DependentUpon>parksightings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="partnership.aspx.cs">
+      <DependentUpon>partnership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="partnership.aspx.designer.cs">
+      <DependentUpon>partnership.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs" />
+    <Compile Include="privacypolicy.aspx.cs">
+      <DependentUpon>privacypolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="privacypolicy.aspx.designer.cs">
+      <DependentUpon>privacypolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resetpassword.aspx.cs">
+      <DependentUpon>resetpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resetpassword.aspx.designer.cs">
+      <DependentUpon>resetpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResizeImageTest.aspx.cs">
+      <DependentUpon>ResizeImageTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResizeImageTest.aspx.designer.cs">
+      <DependentUpon>ResizeImageTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resumableFileUpload.aspx.cs">
+      <DependentUpon>resumableFileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resumableFileUpload.aspx.designer.cs">
+      <DependentUpon>resumableFileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="searchResults.aspx.cs">
+      <DependentUpon>searchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="searchResults.aspx.designer.cs">
+      <DependentUpon>searchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetInStone.cs" />
+    <Compile Include="sightings.aspx.cs">
+      <DependentUpon>sightings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sightings.aspx.designer.cs">
+      <DependentUpon>sightings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="terms.aspx.cs">
+      <DependentUpon>terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="terms.aspx.designer.cs">
+      <DependentUpon>terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="termsAndConditions.ascx.cs">
+      <DependentUpon>termsAndConditions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="termsAndConditions.ascx.designer.cs">
+      <DependentUpon>termsAndConditions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ting.aspx.cs">
+      <DependentUpon>ting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ting.aspx.designer.cs">
+      <DependentUpon>ting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tings2.aspx.cs">
+      <DependentUpon>tings2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tings2.aspx.designer.cs">
+      <DependentUpon>tings2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tvlodge.aspx.cs">
+      <DependentUpon>tvlodge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tvlodge.aspx.designer.cs">
+      <DependentUpon>tvlodge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_addcontent.ascx.cs">
+      <DependentUpon>uc_addcontent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_addcontent.ascx.designer.cs">
+      <DependentUpon>uc_addcontent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_AddImage.ascx.cs">
+      <DependentUpon>uc_AddImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_AddImage.ascx.designer.cs">
+      <DependentUpon>uc_AddImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_billboard.ascx.cs">
+      <DependentUpon>uc_billboard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_billboard.ascx.designer.cs">
+      <DependentUpon>uc_billboard.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_categoryOtherRelatedStories.ascx.cs">
+      <DependentUpon>uc_categoryOtherRelatedStories.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_categoryOtherRelatedStories.ascx.designer.cs">
+      <DependentUpon>uc_categoryOtherRelatedStories.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_dashboard_resumable_file_upload.ascx.cs">
+      <DependentUpon>uc_dashboard_resumable_file_upload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_dashboard_resumable_file_upload.ascx.designer.cs">
+      <DependentUpon>uc_dashboard_resumable_file_upload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_downloadLatestApp.ascx.cs">
+      <DependentUpon>uc_downloadLatestApp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_downloadLatestApp.ascx.designer.cs">
+      <DependentUpon>uc_downloadLatestApp.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_enquireForm.ascx.cs">
+      <DependentUpon>uc_enquireForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_enquireForm.ascx.designer.cs">
+      <DependentUpon>uc_enquireForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_FeaturedCategories.ascx.cs">
+      <DependentUpon>uc_FeaturedCategories.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_FeaturedCategories.ascx.designer.cs">
+      <DependentUpon>uc_FeaturedCategories.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_Footer.ascx.cs">
+      <DependentUpon>uc_Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_Footer.ascx.designer.cs">
+      <DependentUpon>uc_Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_homeLatestBlogs.ascx.cs">
+      <DependentUpon>uc_homeLatestBlogs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_homeLatestBlogs.ascx.designer.cs">
+      <DependentUpon>uc_homeLatestBlogs.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_homepageLatestGalleries.ascx.cs">
+      <DependentUpon>uc_homepageLatestGalleries.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_homepageLatestGalleries.ascx.designer.cs">
+      <DependentUpon>uc_homepageLatestGalleries.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_homepageTings.ascx.cs">
+      <DependentUpon>uc_homepageTings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_homepageTings.ascx.designer.cs">
+      <DependentUpon>uc_homepageTings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_imageSearchResults.ascx.cs">
+      <DependentUpon>uc_imageSearchResults.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_imageSearchResults.ascx.designer.cs">
+      <DependentUpon>uc_imageSearchResults.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_JavaScripts.ascx.cs">
+      <DependentUpon>uc_JavaScripts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_JavaScripts.ascx.designer.cs">
+      <DependentUpon>uc_JavaScripts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_LatestBlogs.ascx.cs">
+      <DependentUpon>uc_LatestBlogs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_LatestBlogs.ascx.designer.cs">
+      <DependentUpon>uc_LatestBlogs.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_latestGalleris.ascx.cs">
+      <DependentUpon>uc_latestGalleris.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_latestGalleris.ascx.designer.cs">
+      <DependentUpon>uc_latestGalleris.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_resumableFileUpload.ascx.cs">
+      <DependentUpon>uc_resumableFileUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_resumableFileUpload.ascx.designer.cs">
+      <DependentUpon>uc_resumableFileUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_SiteHeader.ascx.cs">
+      <DependentUpon>uc_SiteHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_SiteHeader.ascx.designer.cs">
+      <DependentUpon>uc_SiteHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_SiteMap.ascx.cs">
+      <DependentUpon>uc_SiteMap.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_SiteMap.ascx.designer.cs">
+      <DependentUpon>uc_SiteMap.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_styleSheetOverRidesBasedOnUrl.ascx.cs">
+      <DependentUpon>uc_styleSheetOverRidesBasedOnUrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_styleSheetOverRidesBasedOnUrl.ascx.designer.cs">
+      <DependentUpon>uc_styleSheetOverRidesBasedOnUrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_StyleSheets.ascx.cs">
+      <DependentUpon>uc_StyleSheets.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_StyleSheets.ascx.designer.cs">
+      <DependentUpon>uc_StyleSheets.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_tings.ascx.cs">
+      <DependentUpon>uc_tings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_tings.ascx.designer.cs">
+      <DependentUpon>uc_tings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_TopMonthlyContributors.ascx.cs">
+      <DependentUpon>uc_TopMonthlyContributors.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_TopMonthlyContributors.ascx.designer.cs">
+      <DependentUpon>uc_TopMonthlyContributors.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_top_earning_videos.ascx.cs">
+      <DependentUpon>uc_top_earning_videos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_top_earning_videos.ascx.designer.cs">
+      <DependentUpon>uc_top_earning_videos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_top_stories.ascx.cs">
+      <DependentUpon>uc_top_stories.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_top_stories.ascx.designer.cs">
+      <DependentUpon>uc_top_stories.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_tvLodge_Tings.ascx.cs">
+      <DependentUpon>uc_tvLodge_Tings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_tvLodge_Tings.ascx.designer.cs">
+      <DependentUpon>uc_tvLodge_Tings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_videoSearchResults.ascx.cs">
+      <DependentUpon>uc_videoSearchResults.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_videoSearchResults.ascx.designer.cs">
+      <DependentUpon>uc_videoSearchResults.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_video_packages.ascx.cs">
+      <DependentUpon>uc_video_packages.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_video_packages.ascx.designer.cs">
+      <DependentUpon>uc_video_packages.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uc_viewFinancials.ascx.cs">
+      <DependentUpon>uc_viewFinancials.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uc_viewFinancials.ascx.designer.cs">
+      <DependentUpon>uc_viewFinancials.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserFinancials.aspx.cs">
+      <DependentUpon>UserFinancials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserFinancials.aspx.designer.cs">
+      <DependentUpon>UserFinancials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserGraphs.aspx.cs">
+      <DependentUpon>UserGraphs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserGraphs.aspx.designer.cs">
+      <DependentUpon>UserGraphs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="utils.cs" />
+    <Compile Include="Video.cs" />
+    <Compile Include="VideoItemData.aspx.cs">
+      <DependentUpon>VideoItemData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VideoItemData.aspx.designer.cs">
+      <DependentUpon>VideoItemData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="videoList.ascx.cs">
+      <DependentUpon>videoList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="videoList.ascx.designer.cs">
+      <DependentUpon>videoList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="videopreview.aspx.cs">
+      <DependentUpon>videopreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="videopreview.aspx.designer.cs">
+      <DependentUpon>videopreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VideosData.aspx.cs">
+      <DependentUpon>VideosData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VideosData.aspx.designer.cs">
+      <DependentUpon>VideosData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VideoSetting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site1.Master" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\latestSightings_revamp.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedImages\172x172\" />
+    <Folder Include="UploadedImages\650x650\" />
+    <Folder Include="UploadedImages\80x80\" />
+    <Folder Include="Videos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61844/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

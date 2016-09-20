@@ -1,0 +1,15 @@
+﻿ 
+#owl-slider{
+    visibility:hidden;
+}
+
+.tingImage{
+    width:35% !important;
+    margin: 0 auto;
+    padding-top:34px;
+    padding-left:10px;
+}
+
+.owl-controls{
+    display:none;
+}

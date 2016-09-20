@@ -1,0 +1,13 @@
+﻿
+.sitemap {
+    display: none;
+}
+
+#content-inner {
+    height: auto;
+}
+
+.videoDetailsForm {
+    padding-left:0px !important;
+    padding-top:10px !important;
+}

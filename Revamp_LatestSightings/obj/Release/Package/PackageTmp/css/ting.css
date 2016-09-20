@@ -1,0 +1,11 @@
+﻿#lodgeImage{
+    display:none;
+}
+
+a.owl-prev, a.owl-next:hover{
+    color:white !important;
+}
+
+.leftcol{
+    width:100% !important;
+}

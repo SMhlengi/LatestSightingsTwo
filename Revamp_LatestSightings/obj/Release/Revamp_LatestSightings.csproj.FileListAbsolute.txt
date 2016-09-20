@@ -1,0 +1,12 @@
+C:\Users\musa.mhlengi\Documents\Visual Studio 2012\Projects\Revamp_LatestSightings\Revamp_LatestSightings\bin\Revamp_LatestSightings.dll
+C:\Users\musa.mhlengi\Documents\Visual Studio 2012\Projects\Revamp_LatestSightings\Revamp_LatestSightings\bin\Revamp_LatestSightings.pdb
+C:\Users\musa.mhlengi\Documents\Visual Studio 2012\Projects\Revamp_LatestSightings\Revamp_LatestSightings\obj\Release\Revamp_LatestSightings.dll
+C:\Users\musa.mhlengi\Documents\Visual Studio 2012\Projects\Revamp_LatestSightings\Revamp_LatestSightings\obj\Release\Revamp_LatestSightings.pdb
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\bin\Revamp_LatestSightings.dll
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\bin\Revamp_LatestSightings.pdb
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\obj\Release\Revamp_LatestSightings.dll
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\obj\Release\Revamp_LatestSightings.pdb
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\bin\Revamp_LatestSightings.dll.config
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\obj\Release\Revamp_LatestSightings.csprojResolveAssemblyReference.cache
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\bin\LatestSightingsLibrary.dll
+C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\bin\LatestSightingsLibrary.pdb

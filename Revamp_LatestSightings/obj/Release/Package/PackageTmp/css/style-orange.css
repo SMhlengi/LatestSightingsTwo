@@ -1,0 +1,43 @@
+body { 
+	background-image: url('../upload/bg/bg-hd-orange.jpg');
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-right li a:hover, .blog-details .blog-date, .author-box, #respond input[type="submit"]:hover, .tooltip-inner, .footer .footer-social li a:hover, .tagcloud a:hover, .blog-grid-controls a:hover, .wpcf7 input[type="submit"]:hover, .owl-theme .owl-controls .owl-nav div:hover, ul.filter li a:hover, ul.filter li a.active, .service-item:hover, .steps .step-item:hover, .image-box .image a:hover, .image-box:hover, .team-title, .testimonials, .clients-slider.owl-theme .owl-dot.active, nav#main-menu > .menu-container > ul > li:hover > a, nav#main-menu > .menu-container .menu-container, .mp-level, .flip-content, #trigger, .post-slider .thumbs .item:hover, .post-slider .thumbs .item.active, #back-to-top:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+	background-color: #ff8a00;
+	background-color: rgba(255, 138, 0, 1);
+}
+
+.bypostauthor .comment-box, #respond input[type="submit"], .blog-grid-controls a, .wpcf7 input[type="submit"], .portfolio-info-overlay, .owl-theme .owl-controls .owl-nav div, .service-item.active, .steps .step-item.active, .team-member:hover .team-title, .btn-primary {
+	background-color: #ff8a00;
+	background-color: rgba(255, 138, 0, 0.7);
+}
+
+ul.iconned-list li i, .steps .step-item .step-icon {
+	color: #ff8a00;
+	color: rgba(255, 138, 0, 1);
+}
+
+h4.underlined, .main-title:after, .page-titles:after, .blog-content:after, #respond h3#reply-title, #sidebar-area .widget > h4, #map-content h3:after, .blog-list-content > h2:after, .blog-grid-item .blog-grid-content h3, .tooltip.bottom .tooltip-arrow {
+	border-bottom-color: #ff8a00;
+	border-bottom-color: rgba(255, 138, 0, 1);
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: #ff8a00;
+	border-top-color: rgba(255, 138, 0, 1);
+}
+
+.image-box:hover .image-box-content:before, .post-slider .thumbs .item.active:after {
+	border-right-color: #ff8a00;
+	border-right-color: rgba(255, 138, 0, 1);
+}
+
+nav#main-menu > .menu-container > ul > li > a {
+	border-color: #ff8a00;
+	border-color: rgba(255, 138, 0, 1);
+}
+
+#respond input, #respond textarea, .sidebar-searchbox input:focus, .sidebar-searchbox input:hover, .wpcf7 input, .wpcf7 textarea {
+	outline-color: #ff8a00;
+	outline-color: rgba(255, 138, 0, 1);
+}

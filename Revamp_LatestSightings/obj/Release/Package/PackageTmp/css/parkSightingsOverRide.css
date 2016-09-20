@@ -1,0 +1,11 @@
+﻿.slider-container .owl-theme .owl-dots{
+    left:20% !important;
+}
+
+.image-gallery-item img{
+    height:700px !important;
+}
+
+a.owl-next:hover{
+    color:white !important;
+}

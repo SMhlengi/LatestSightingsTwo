@@ -1,0 +1,15 @@
+﻿.loadingImage img {
+    width: 100px;
+    height: 33px;
+}
+
+
+.loadingImage {
+    margin: 0 auto;
+    width: 37%;
+    padding-top: 25px;
+}
+
+#homepageLatestBlogs{
+    visibility:hidden;
+}

@@ -1,0 +1,919 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\musa.mhlengi\Desktop\Revamp_LatestSightings</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="aboutus.aspx">
+      <publishTime>05/21/2016 19:41:56</publishTime>
+    </File>
+    <File Include="AddImage.aspx">
+      <publishTime>08/01/2015 19:05:22</publishTime>
+    </File>
+    <File Include="addVideo.ascx">
+      <publishTime>06/19/2016 17:34:22</publishTime>
+    </File>
+    <File Include="ad_300by50.ascx">
+      <publishTime>05/22/2016 15:52:31</publishTime>
+    </File>
+    <File Include="AjaxOperation.aspx">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="bin/CuteWebUI.AjaxUploader.dll">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="bin/DotNetHelpers.UltimateImageResizer.dll">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="bin/Intelligencia.UrlRewriter.dll">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="bin/LatestSightingsLibrary.dll">
+      <publishTime>05/16/2016 19:16:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="bin/Revamp_LatestSightings.dll">
+      <publishTime>09/20/2016 01:51:37</publishTime>
+    </File>
+    <File Include="blog.aspx">
+      <publishTime>05/23/2016 04:07:38</publishTime>
+    </File>
+    <File Include="bloglist.aspx">
+      <publishTime>05/21/2016 23:50:01</publishTime>
+    </File>
+    <File Include="categoryBlogList.aspx">
+      <publishTime>05/22/2016 00:03:38</publishTime>
+    </File>
+    <File Include="completeProfile.ascx">
+      <publishTime>06/09/2016 20:22:00</publishTime>
+    </File>
+    <File Include="contactus.aspx">
+      <publishTime>05/22/2016 00:23:11</publishTime>
+    </File>
+    <File Include="content.aspx">
+      <publishTime>12/04/2015 19:54:03</publishTime>
+    </File>
+    <File Include="css/300by50Add.css">
+      <publishTime>05/22/2016 15:52:08</publishTime>
+    </File>
+    <File Include="css/aboutUsOverRide.css">
+      <publishTime>05/21/2016 19:32:09</publishTime>
+    </File>
+    <File Include="css/animate.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/animate.min.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/bloglist.css">
+      <publishTime>05/21/2016 23:57:28</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.css.map">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.min.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/bootstrap.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/bootstrap.css.map">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/categoryBlogList.css">
+      <publishTime>05/22/2016 00:03:22</publishTime>
+    </File>
+    <File Include="css/component.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/contactusOverRide.css">
+      <publishTime>05/22/2016 00:24:09</publishTime>
+    </File>
+    <File Include="css/dashboardOveride.css">
+      <publishTime>07/07/2016 03:53:04</publishTime>
+    </File>
+    <File Include="css/dataTables.responsive.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/docs.min.css">
+      <publishTime>10/08/2015 22:06:10</publishTime>
+    </File>
+    <File Include="css/enquireForm.css">
+      <publishTime>05/22/2016 14:01:12</publishTime>
+    </File>
+    <File Include="css/font-awesome.min.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/forgottenPasswordOverRide.css">
+      <publishTime>05/22/2016 00:56:00</publishTime>
+    </File>
+    <File Include="css/gallerymodal.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/GoogleApisFonts.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/homepageTings.css">
+      <publishTime>05/22/2016 15:32:37</publishTime>
+    </File>
+    <File Include="css/hover-min.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/jplayer.blue.monday.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/jquery-ui.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/jquery-ui.min.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/jquery.dataTables.min.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/jquery.multilevelpushmenu.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/LatestBlogs.css">
+      <publishTime>05/22/2016 14:04:32</publishTime>
+    </File>
+    <File Include="css/latestGalleries.css">
+      <publishTime>05/22/2016 15:28:05</publishTime>
+    </File>
+    <File Include="css/loginOverRide.css">
+      <publishTime>05/22/2016 12:46:38</publishTime>
+    </File>
+    <File Include="css/magnific-popup.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/morris.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/multistep-indicator.css">
+      <publishTime>06/12/2016 10:38:57</publishTime>
+    </File>
+    <File Include="css/normalize.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/owl.carousel.css">
+      <publishTime>08/16/2015 23:11:34</publishTime>
+    </File>
+    <File Include="css/owl.carousel2.css">
+      <publishTime>11/07/2015 11:20:05</publishTime>
+    </File>
+    <File Include="css/owl.theme.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/parkSightingsOverRide.css">
+      <publishTime>05/22/2016 12:53:59</publishTime>
+    </File>
+    <File Include="css/prettyCheckable.css">
+      <publishTime>06/18/2016 13:00:58</publishTime>
+    </File>
+    <File Include="css/registerOverRide.css">
+      <publishTime>05/22/2016 13:01:47</publishTime>
+    </File>
+    <File Include="css/resetpasswordOverRide.css">
+      <publishTime>05/22/2016 13:13:32</publishTime>
+    </File>
+    <File Include="css/responsive.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/responsivedataTables.responsive.css">
+      <publishTime>07/10/2016 20:39:42</publishTime>
+    </File>
+    <File Include="css/responsive_4_18_2015.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/rfu.css">
+      <publishTime>05/22/2016 13:56:05</publishTime>
+    </File>
+    <File Include="css/searchResults.css">
+      <publishTime>08/15/2016 22:49:07</publishTime>
+    </File>
+    <File Include="css/sightingsOverRide.css">
+      <publishTime>05/22/2016 13:35:36</publishTime>
+    </File>
+    <File Include="css/Site.css">
+      <publishTime>04/23/2016 09:35:14</publishTime>
+    </File>
+    <File Include="css/style-blue.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/style-gray.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/style-orange.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/style-red.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>05/08/2016 17:55:46</publishTime>
+    </File>
+    <File Include="css/style.datatables.css">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="css/styleThree.css">
+      <publishTime>09/19/2016 23:05:18</publishTime>
+    </File>
+    <File Include="css/styleTwo.css">
+      <publishTime>05/24/2016 02:40:34</publishTime>
+    </File>
+    <File Include="css/style_backup_4_18_2015.css">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="css/sweetalert.css">
+      <publishTime>04/23/2016 09:35:14</publishTime>
+    </File>
+    <File Include="css/swiper.css">
+      <publishTime>08/16/2015 14:10:05</publishTime>
+    </File>
+    <File Include="css/termsOverRide.css">
+      <publishTime>05/22/2016 13:39:19</publishTime>
+    </File>
+    <File Include="css/ting.css">
+      <publishTime>05/22/2016 16:10:11</publishTime>
+    </File>
+    <File Include="css/topEarningVideos.css">
+      <publishTime>05/22/2016 15:40:55</publishTime>
+    </File>
+    <File Include="css/tvLodge.css">
+      <publishTime>11/10/2015 23:35:18</publishTime>
+    </File>
+    <File Include="css/userFinancials.css">
+      <publishTime>07/10/2016 19:52:53</publishTime>
+    </File>
+    <File Include="css/videopreview.css">
+      <publishTime>05/22/2016 15:46:22</publishTime>
+    </File>
+    <File Include="dashboard.aspx">
+      <publishTime>07/10/2016 23:30:47</publishTime>
+    </File>
+    <File Include="default.aspx">
+      <publishTime>11/07/2015 10:49:34</publishTime>
+    </File>
+    <File Include="financialsTest.aspx">
+      <publishTime>07/09/2016 11:53:34</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.eot">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.svg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.ttf">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/FontAwesome.otf">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="forgottenPassword.aspx">
+      <publishTime>05/24/2016 03:24:13</publishTime>
+    </File>
+    <File Include="galleries.aspx">
+      <publishTime>12/04/2015 19:01:46</publishTime>
+    </File>
+    <File Include="galleryfilter.aspx">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="galleryview.aspx">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="holidays.aspx">
+      <publishTime>12/04/2015 19:55:31</publishTime>
+    </File>
+    <File Include="htings.aspx">
+      <publishTime>10/05/2015 22:25:29</publishTime>
+    </File>
+    <File Include="imageModal.aspx">
+      <publishTime>07/04/2016 22:33:48</publishTime>
+    </File>
+    <File Include="imagepreview.aspx">
+      <publishTime>07/05/2016 01:18:08</publishTime>
+    </File>
+    <File Include="images/299.GIF">
+      <publishTime>10/05/2015 23:21:07</publishTime>
+    </File>
+    <File Include="images/332.GIF">
+      <publishTime>10/05/2015 22:44:01</publishTime>
+    </File>
+    <File Include="images/333.GIF">
+      <publishTime>10/05/2015 22:50:43</publishTime>
+    </File>
+    <File Include="images/350.GIF">
+      <publishTime>10/07/2015 00:03:22</publishTime>
+    </File>
+    <File Include="images/466.GIF">
+      <publishTime>10/11/2015 19:21:20</publishTime>
+    </File>
+    <File Include="images/712.GIF">
+      <publishTime>10/07/2015 00:03:22</publishTime>
+    </File>
+    <File Include="images/76.GIF">
+      <publishTime>10/15/2015 00:39:33</publishTime>
+    </File>
+    <File Include="images/about-650x650.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/aboutuspic.jpg">
+      <publishTime>05/21/2016 19:36:11</publishTime>
+    </File>
+    <File Include="images/ads-300x250.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/AllTings.jpg">
+      <publishTime>08/11/2015 22:22:37</publishTime>
+    </File>
+    <File Include="images/app.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/author-100x100.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/bg-hd.jpg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/clients-190x65.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/comment-70x70.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/downloadappimg.png">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/Download_on_the_App_Store_Badge_US-UK_135x40.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/Download_on_the_App_Store_Badge_US-UK_135x40.svg">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/en_generic_rgb_wo_60.png">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/favicon.ico">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/FBandTwitter.jpg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/FBComments.jpg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/FBComments_Sml.jpg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/flipmenu-600x600.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/gallery-720x550.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/grid-550x310.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ic-greencar.svg">
+      <publishTime>08/02/2015 14:14:27</publishTime>
+    </File>
+    <File Include="images/ic-orangecar.svg">
+      <publishTime>08/02/2015 14:14:27</publishTime>
+    </File>
+    <File Include="images/ic-redcar.svg">
+      <publishTime>08/02/2015 14:14:27</publishTime>
+    </File>
+    <File Include="images/ic-starline.svg">
+      <publishTime>08/02/2015 14:14:27</publishTime>
+    </File>
+    <File Include="images/ic_star.svg">
+      <publishTime>08/02/2015 14:14:27</publishTime>
+    </File>
+    <File Include="images/jplayer.blue.monday.jpg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/jplayer.blue.monday.seeking.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/jplayer.blue.monday.video.play.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/latestsightings.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/loader9.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/loading.gif">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/LodgeMap1.jpg">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/lodges3.jpg">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/logo-horizontal-new.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/masonry-600x1200.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/masonry-600x300.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/masonry-600x600 - Copy.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/NgwenyaLodge.jpg">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/partnership1.png">
+      <publishTime>07/13/2016 12:54:06</publishTime>
+    </File>
+    <File Include="images/partnership2.png">
+      <publishTime>07/13/2016 12:54:06</publishTime>
+    </File>
+    <File Include="images/partnership3.png">
+      <publishTime>07/13/2016 12:54:06</publishTime>
+    </File>
+    <File Include="images/placestostay.jpg">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/postslider-879x487.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/postslidert-80x80.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/recent-60x60.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/relatedblog-450x450.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/relatedposts-720x720.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/services-590x375.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/slideshow-1140x390.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/socialenginelogo.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/sprites-sfa68604977.png">
+      <publishTime>06/18/2016 13:00:44</publishTime>
+    </File>
+    <File Include="images/ting_arrow_indicator_down.png">
+      <publishTime>11/07/2015 17:37:47</publishTime>
+    </File>
+    <File Include="images/ting_arrow_indicator_up.png">
+      <publishTime>11/07/2015 17:37:47</publishTime>
+    </File>
+    <File Include="images/ui-bg_diagonals-thick_18_b81900_40x40.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_diagonals-thick_20_666666_40x40.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_flat_10_000000_40x100.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_glass_100_f6f6f6_1x400.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_glass_100_fdf5ce_1x400.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_gloss-wave_35_f6a828_500x100.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_highlight-soft_100_eeeeee_1x100.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-bg_highlight-soft_75_ffe45c_1x100.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-icons_222222_256x240.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-icons_228ef1_256x240.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-icons_ef8c08_256x240.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-icons_ffd27a_256x240.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/ui-icons_ffffff_256x240.png">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/video-16x9.gif">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="images/WindowsStore_badge_en_English_Black_large_120x462.png">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="images/WindowsStore_badge_en_English_Black_small_154x40.png">
+      <publishTime>08/01/2015 19:05:24</publishTime>
+    </File>
+    <File Include="js/2owl.carousel.min.js">
+      <publishTime>11/08/2015 11:20:13</publishTime>
+    </File>
+    <File Include="js/adsbygoogle.js">
+      <publishTime>10/14/2015 23:17:14</publishTime>
+    </File>
+    <File Include="js/ajax-loader.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/bootstrap.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/bootstrap.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/bootstrap.youtubepopup.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/classie.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/completeProfile.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/enqureForm.js">
+      <publishTime>11/06/2015 05:04:04</publishTime>
+    </File>
+    <File Include="js/gallery.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/galleryviewmodal.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/homePage.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/homePageBillboard.js">
+      <publishTime>12/10/2015 23:23:58</publishTime>
+    </File>
+    <File Include="js/homePageLatestBlogs.js">
+      <publishTime>12/04/2015 09:15:38</publishTime>
+    </File>
+    <File Include="js/homepageLattestGalleries.js">
+      <publishTime>10/16/2015 00:18:08</publishTime>
+    </File>
+    <File Include="js/homePageTings.js">
+      <publishTime>11/26/2015 05:38:21</publishTime>
+    </File>
+    <File Include="js/imagesloaded.pkgd.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/isotope.pkgd.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/Jplayer.swf">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/jquery-1.11.1.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/jquery-ui.min.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/jquery-uiv3.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/jquery-uiv4.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/jquery.cookies.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/jquery.dataTables.min.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/jquery.fitvids.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/jquery.isotope.min.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/jquery.jplayer.min.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/jquery.magnific-popup.min.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/jquery.migrate.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/knockout-3.3.0.js">
+      <publishTime>04/23/2016 09:35:14</publishTime>
+    </File>
+    <File Include="js/Lodge.js">
+      <publishTime>08/02/2015 21:35:14</publishTime>
+    </File>
+    <File Include="js/LodgeTV.js">
+      <publishTime>11/11/2015 22:56:30</publishTime>
+    </File>
+    <File Include="js/LodgeWeb.js">
+      <publishTime>11/07/2015 18:59:03</publishTime>
+    </File>
+    <File Include="js/mlpushmenu.js">
+      <publishTime>08/02/2015 22:28:27</publishTime>
+    </File>
+    <File Include="js/modernizr-2.6.2.js">
+      <publishTime>04/23/2016 09:35:14</publishTime>
+    </File>
+    <File Include="js/modernizr.custom.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/modernizr.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/navigate.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/numeral.min.js">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="js/owl.carousel.js">
+      <publishTime>11/05/2015 07:23:03</publishTime>
+    </File>
+    <File Include="js/owl.carousel.min.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/parkSightings.js">
+      <publishTime>05/16/2016 02:48:57</publishTime>
+    </File>
+    <File Include="js/plugins-scroll.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/prettyCheckable.min.js">
+      <publishTime>06/18/2016 12:47:46</publishTime>
+    </File>
+    <File Include="js/randomBlue.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/randomGray.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/randomOrange.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/randomRed.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/responsiveAdsByGoogle.js">
+      <publishTime>05/19/2016 23:16:21</publishTime>
+    </File>
+    <File Include="js/resumable.js">
+      <publishTime>04/23/2016 09:35:14</publishTime>
+    </File>
+    <File Include="js/scripts.js">
+      <publishTime>11/08/2015 22:36:22</publishTime>
+    </File>
+    <File Include="js/sighting.js">
+      <publishTime>11/08/2015 09:58:39</publishTime>
+    </File>
+    <File Include="js/SightingTingInfo.js">
+      <publishTime>05/18/2016 21:50:49</publishTime>
+    </File>
+    <File Include="js/sweetalert.min.js">
+      <publishTime>04/23/2016 09:35:15</publishTime>
+    </File>
+    <File Include="js/swiper.js">
+      <publishTime>08/16/2015 14:11:45</publishTime>
+    </File>
+    <File Include="js/tvLodge_Tings.js">
+      <publishTime>10/29/2015 12:27:54</publishTime>
+    </File>
+    <File Include="js/Upload.js">
+      <publishTime>07/07/2016 06:04:51</publishTime>
+    </File>
+    <File Include="js/validateVideoDetails.js">
+      <publishTime>06/23/2016 21:08:04</publishTime>
+    </File>
+    <File Include="js/validationLib.js">
+      <publishTime>09/20/2016 01:47:20</publishTime>
+    </File>
+    <File Include="js/waypoints.min.js">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="js/widgets.js">
+      <publishTime>10/15/2015 01:08:48</publishTime>
+    </File>
+    <File Include="js/youtubeSearchResults.js">
+      <publishTime>10/11/2015 18:58:00</publishTime>
+    </File>
+    <File Include="lodges.aspx">
+      <publishTime>05/16/2016 04:51:33</publishTime>
+    </File>
+    <File Include="lodges.html">
+      <publishTime>08/01/2015 19:05:25</publishTime>
+    </File>
+    <File Include="login.aspx">
+      <publishTime>05/24/2016 02:45:53</publishTime>
+    </File>
+    <File Include="parksightings.aspx">
+      <publishTime>05/22/2016 12:54:08</publishTime>
+    </File>
+    <File Include="partnership.aspx">
+      <publishTime>08/03/2016 22:28:09</publishTime>
+    </File>
+    <File Include="privacypolicy.aspx">
+      <publishTime>09/09/2015 23:41:45</publishTime>
+    </File>
+    <File Include="register.aspx">
+      <publishTime>05/24/2016 03:14:51</publishTime>
+    </File>
+    <File Include="resetpassword.aspx">
+      <publishTime>05/22/2016 13:09:26</publishTime>
+    </File>
+    <File Include="ResizeImageTest.aspx">
+      <publishTime>08/01/2015 19:05:22</publishTime>
+    </File>
+    <File Include="resumableFileUpload.aspx">
+      <publishTime>04/23/2016 09:35:15</publishTime>
+    </File>
+    <File Include="searchResults.aspx">
+      <publishTime>08/16/2016 00:03:03</publishTime>
+    </File>
+    <File Include="sightings.aspx">
+      <publishTime>05/22/2016 13:33:33</publishTime>
+    </File>
+    <File Include="Site1.Master">
+      <publishTime>07/10/2016 17:23:42</publishTime>
+    </File>
+    <File Include="terms.aspx">
+      <publishTime>05/22/2016 13:39:01</publishTime>
+    </File>
+    <File Include="termsAndConditions.ascx">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="ting.aspx">
+      <publishTime>05/22/2016 16:11:48</publishTime>
+    </File>
+    <File Include="tings2.aspx">
+      <publishTime>10/01/2015 23:04:53</publishTime>
+    </File>
+    <File Include="tvlodge.aspx">
+      <publishTime>11/11/2015 01:42:03</publishTime>
+    </File>
+    <File Include="uc_addcontent.ascx">
+      <publishTime>09/19/2016 23:02:38</publishTime>
+    </File>
+    <File Include="uc_addcontent2.ascx">
+      <publishTime>06/08/2016 03:38:33</publishTime>
+    </File>
+    <File Include="uc_addcontent3.ascx">
+      <publishTime>06/08/2016 03:56:48</publishTime>
+    </File>
+    <File Include="uc_AddImage.ascx">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="uc_billboard.ascx">
+      <publishTime>05/22/2016 13:47:25</publishTime>
+    </File>
+    <File Include="uc_categoryOtherRelatedStories.ascx">
+      <publishTime>08/01/2015 19:05:26</publishTime>
+    </File>
+    <File Include="uc_dashboard_resumable_file_upload.ascx">
+      <publishTime>07/07/2016 06:05:19</publishTime>
+    </File>
+    <File Include="uc_downloadLatestApp.ascx">
+      <publishTime>11/18/2015 02:39:09</publishTime>
+    </File>
+    <File Include="uc_enquireForm.ascx">
+      <publishTime>05/22/2016 14:02:12</publishTime>
+    </File>
+    <File Include="uc_FeaturedCategories.ascx">
+      <publishTime>11/27/2015 05:12:42</publishTime>
+    </File>
+    <File Include="uc_Footer.ascx">
+      <publishTime>04/10/2016 12:39:06</publishTime>
+    </File>
+    <File Include="uc_homeLatestBlogs.ascx">
+      <publishTime>05/22/2016 14:06:23</publishTime>
+    </File>
+    <File Include="uc_homepageLatestGalleries.ascx">
+      <publishTime>05/22/2016 15:29:04</publishTime>
+    </File>
+    <File Include="uc_homepageTings.ascx">
+      <publishTime>05/22/2016 15:33:34</publishTime>
+    </File>
+    <File Include="uc_HomePage_Main_Container_Section.ascx">
+      <publishTime>01/25/2015 16:18:13</publishTime>
+    </File>
+    <File Include="uc_imageSearchResults.ascx">
+      <publishTime>07/23/2016 00:25:16</publishTime>
+    </File>
+    <File Include="uc_JavaScripts.ascx">
+      <publishTime>09/20/2016 01:47:36</publishTime>
+    </File>
+    <File Include="uc_LatestBlogs.ascx">
+      <publishTime>12/04/2015 09:54:54</publishTime>
+    </File>
+    <File Include="uc_latestGalleris.ascx">
+      <publishTime>05/18/2016 22:40:05</publishTime>
+    </File>
+    <File Include="uc_resumableFileUpload.ascx">
+      <publishTime>05/22/2016 15:38:00</publishTime>
+    </File>
+    <File Include="uc_SiteHeader.ascx">
+      <publishTime>08/12/2016 00:18:57</publishTime>
+    </File>
+    <File Include="uc_SiteMap.ascx">
+      <publishTime>07/13/2016 21:13:55</publishTime>
+    </File>
+    <File Include="uc_styleSheetOverRidesBasedOnUrl.ascx">
+      <publishTime>05/22/2016 16:11:32</publishTime>
+    </File>
+    <File Include="uc_StyleSheets.ascx">
+      <publishTime>09/19/2016 23:06:19</publishTime>
+    </File>
+    <File Include="uc_tings.ascx">
+      <publishTime>10/11/2015 20:39:44</publishTime>
+    </File>
+    <File Include="uc_TopMonthlyContributors.ascx">
+      <publishTime>07/13/2016 21:13:55</publishTime>
+    </File>
+    <File Include="uc_top_earning_videos.ascx">
+      <publishTime>07/13/2016 21:13:55</publishTime>
+    </File>
+    <File Include="uc_top_stories.ascx">
+      <publishTime>12/04/2015 14:13:14</publishTime>
+    </File>
+    <File Include="uc_tvLodge_Tings.ascx">
+      <publishTime>11/05/2015 06:56:51</publishTime>
+    </File>
+    <File Include="uc_videoSearchResults.ascx">
+      <publishTime>09/24/2015 18:16:12</publishTime>
+    </File>
+    <File Include="uc_video_packages.ascx">
+      <publishTime>09/19/2016 23:00:03</publishTime>
+    </File>
+    <File Include="uc_viewFinancials.ascx">
+      <publishTime>07/10/2016 23:29:28</publishTime>
+    </File>
+    <File Include="UserFinancials.aspx">
+      <publishTime>07/10/2016 19:05:16</publishTime>
+    </File>
+    <File Include="UserGraphs.aspx">
+      <publishTime>07/10/2016 17:23:34</publishTime>
+    </File>
+    <File Include="VideoItemData.aspx">
+      <publishTime>08/01/2015 19:05:23</publishTime>
+    </File>
+    <File Include="videoList.ascx">
+      <publishTime>09/20/2016 01:35:23</publishTime>
+    </File>
+    <File Include="videopreview.aspx">
+      <publishTime>06/25/2016 10:44:10</publishTime>
+    </File>
+    <File Include="VideosData.aspx">
+      <publishTime>08/01/2015 19:05:23</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/12/2016 00:20:59</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+﻿.adloadingImage img {
+    width: 100px;
+    height: 33px;
+}
+
+
+.adloadingImage {
+    margin: 0 auto;
+    width: 34%;
+    padding-top: 25px;
+}

@@ -1,0 +1,11 @@
+﻿
+.footer{
+    display:none;
+}
+.right{
+    margin-top:-26px !important;
+}
+
+.adbox .right {
+    padding-top:28px !important;
+}

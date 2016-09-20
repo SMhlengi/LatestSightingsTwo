@@ -1,0 +1,15 @@
+﻿.galleryloadingImage img {
+    width: 100px;
+    height: 33px;
+}
+
+
+.galleryloadingImage {
+    margin: 0 auto;
+    width: 13%;
+    padding-top: 25px;
+}
+
+.latestGalleriesPicsAndVideos{
+    visibility:hidden;
+}
