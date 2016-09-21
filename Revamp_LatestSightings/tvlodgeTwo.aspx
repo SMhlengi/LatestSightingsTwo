@@ -149,7 +149,7 @@
     </div>
 
 
-<script src="<%= ResolveUrl("~/js/board.js") %>"></script>
+<script src="<%= ResolveUrl("~/js/board.js?v=9") %>"></script>
 <script src="<%= ResolveUrl("~/js/jquery.bxslider.min.js") %>"></script>
 </form>
 </body>

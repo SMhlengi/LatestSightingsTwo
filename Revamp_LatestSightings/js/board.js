@@ -36,6 +36,23 @@ $(document).ready(function(){
       moveSlides: 1,
       pager: false,
       controls: false,
-      adaptiveHeight: false
+      adaptiveHeight: false,
+      onSlideAfter: function ($slideElement, oldIndex, newIndex) {
+          console.log($slideElement);
+          console.log(oldIndex);
+          console.log(newIndex);
+          $($slideElement[0]).addClass("active");
+          $($slideElement[0]).prev().removeClass("active");
+          //console.log($($slideElement).prev());
+
+          // get active item 
+          //var currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
+          //// remove active class on last item
+          //$($(currentActiveItem)[1]).removeClass("active");
+          //// get next soon to be active Item
+          //var nextSoonBeActiveItem = $($(".bxslider .active")[0]).next();
+          //$($(currentActiveItem)[0]).removeClass("active");
+          //$(nextSoonBeActiveItem).addClass("active");          
+      }
     });
 });
