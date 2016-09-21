@@ -12,5 +12,7 @@ namespace Revamp_LatestSightings
         public string RevSplit { get; set; }
         public string Uploaded { get; set; }
         public string Accepted { get; set; }
+        public string Package { get; set; }
+        public DateTime created { get; set; }
     }
 }

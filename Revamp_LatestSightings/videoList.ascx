@@ -11,7 +11,7 @@
                     <th style="background-color:#554337; color: #FFFFFF; border-bottom: 0px;">Alias</th>
                     <th style="background-color:#554337; color: #FFFFFF; border-bottom: 0px;">Rev Split</th>
                     <th style="background-color:#554337; color: #FFFFFF; border-bottom: 0px;">Uploaded</th>
-                    <th style="background-color:#554337; color: #FFFFFF; border-bottom: 0px;">Accepted</th>
+                    <th style="background-color:#554337; color: #FFFFFF; border-bottom: 0px;">Accepted Package</th>
                 </tr>
             </thead>
     <tbody>            
@@ -21,7 +21,7 @@
                     <td><%=item.Alias %></td>
                     <td><%=item.RevSplit %></td>
                     <td><%=item.Uploaded %></td>
-                    <td><%=item.Accepted %></td>
+                    <td><%=item.Package %></td>
                 </tr>
             <%} %>
     </tbody>

@@ -23,7 +23,7 @@ namespace Revamp_LatestSightings
         private const string SQL_INSERT_IMAGE = "INSERT INTO latestsightings.dbo.[images] (contributor, original, eightyBYeighty, sixFiftyBYsixFifty, display, dateAdded, dateModified, animal, activity, area, tags, generalComment, title) VALUES (@contributor, @original, @eightyBYeighty, @sixFiftyBYsixFifty, @display, @dateAdded, @dateModified, @animal, @activity, @area, @tags, @generalComment, @title); SELECT TOP 1 id FROM latestsightings.dbo.images WHERE contributor =  @contributor ORDER BY dateAdded DESC";
         private const string SQL_GET_IMAGE_BASED_ON_ID = "SELECT * FROM latestsightings.dbo.[images] where id = @imageId";
         private const string SQL_UPDATE_IMAGES = "Update latestsightings.dbo.images SET eightyBYeighty = @filename, sixFiftyBYsixFifty = @filename, original = @filename  where (id = @recordid);";
-        private const string SQL_SELECT_PERSON_VIDEOS = "Select * from latestsightings.dbo.videos where (contributor = @contributor);";
+        private const string SQL_SELECT_PERSON_VIDEOS = "Select * from latestsightings.dbo.videos where (contributor = @contributor) ORDER BY created DESC;";
         private const string SQL_SELECT_PERSON_BASED_ON_ID = "SELECT firstname, lastname, email, cellNumber, telNumber, screenName FROM latestsightings.dbo.people WHERE (id = @userid);";
         private const string SQL_SELECT_USER_LASTEST_VIDEO = "SELECT TOP (1) * from latestsightings.dbo.videos WHERE (contributor = @contributor) AND (videoStatus = 'Pending') ORDER BY created DESC";
 
@@ -459,12 +459,15 @@ namespace Revamp_LatestSightings
                         video.Alias = data["alias"].ToString();
                         video.RevSplit = data["revenueShare"].ToString();
                         video.Uploaded = "Y";
-                        if (data["videoStatus"].ToString() == "Accepted")
-                            video.Accepted = "Yes";
-                        else if (data["videoStatus"].ToString() == "Declined")
-                            video.Accepted = "No";
+                        video.created = Convert.ToDateTime(data["created"].ToString());
+                        if (data["package"] != System.DBNull.Value)
+                        {
+                            video.Package = data["package"].ToString();
+                            if (String.IsNullOrEmpty(video.Package))
+                                video.Package = "Not Accepted Yet";
+                        }
                         else
-                            video.Accepted = "--";
+                            video.Package = "Not Accepted Yet";
                         userVideos.Add(video);
                     }
                     data.Close();
@@ -477,7 +480,7 @@ namespace Revamp_LatestSightings
                 conn.Close();
             }
 
-            return userVideos;
+            return userVideos.OrderByDescending( x => x.created).ToList();
 
         }
 

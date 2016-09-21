@@ -20,7 +20,6 @@ namespace Revamp_LatestSightings
             SqlCommand query = new SqlCommand();
             SqlDataReader data = null;
             userVideos = DataLayer.GetUserVideos(conn, query, data, userVideos, userId);
-            //uc_video_packages
             uc_video_packages v_packages = (uc_video_packages)LoadControl("~/uc_video_packages.ascx");
             vpreview.Controls.Add(v_packages);
         }
