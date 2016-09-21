@@ -25,7 +25,9 @@ window.onload = function () {
 
 // Refer to this link for customisation options: http://bxslider.com/options
 
-$(document).ready(function(){
+$(document).ready(function () {
+    var indexOfLastTing = 4;
+
   $('.bxslider').bxSlider({
       mode: 'vertical',
       speed: 600,
@@ -38,11 +40,18 @@ $(document).ready(function(){
       controls: false,
       adaptiveHeight: false,
       onSlideAfter: function ($slideElement, oldIndex, newIndex) {
-          console.log($slideElement);
-          console.log(oldIndex);
-          console.log(newIndex);
+          //console.log($slideElement);
+          //console.log(oldIndex);
+          //console.log(newIndex);
           $($slideElement[0]).addClass("active");
-          $($slideElement[0]).prev().removeClass("active");
+
+          if (oldIndex == indexOfLastTing) {
+              //console.log($slideElement.prevObject[indexOfLastTing]);
+              $($slideElement.prevObject[indexOfLastTing]).removeClass("active");
+          } else {
+              $($slideElement[0]).prev().removeClass("active");
+          }
+          
           //console.log($($slideElement).prev());
 
           // get active item 
@@ -53,6 +62,12 @@ $(document).ready(function(){
           //var nextSoonBeActiveItem = $($(".bxslider .active")[0]).next();
           //$($(currentActiveItem)[0]).removeClass("active");
           //$(nextSoonBeActiveItem).addClass("active");          
+      },
+      onSliderLoad: function () {
+          // get active item 
+          var currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
+          // remove active class on last item
+          $($(currentActiveItem)[1]).removeClass("active");
       }
     });
 });
