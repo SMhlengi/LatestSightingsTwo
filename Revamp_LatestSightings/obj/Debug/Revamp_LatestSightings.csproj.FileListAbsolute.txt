@@ -15,3 +15,10 @@ C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSight
 C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\bin\LatestSightingsLibrary.pdb
 C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\obj\Debug\Revamp_LatestSightings.dll
 C:\Users\musa.mhlengi\Documents\GitHub\Revamp_LatestSightings\Revamp_LatestSightings\obj\Debug\Revamp_LatestSightings.pdb
+C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\bin\Revamp_LatestSightings.dll.config
+C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\bin\Revamp_LatestSightings.dll
+C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\bin\Revamp_LatestSightings.pdb
+C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\bin\LatestSightingsLibrary.dll
+C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\bin\LatestSightingsLibrary.pdb
+C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\obj\Debug\Revamp_LatestSightings.dll
+C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\obj\Debug\Revamp_LatestSightings.pdb

@@ -36,7 +36,17 @@
                                     <p class="text-danger">Last name is required</p>
                                 </div>
                             </div>
-                        <br />
+                            <!-- screen name -->
+                            <div class="col-sm-12">
+                                <div class="input-group form-group mb15 col-md-12 col-sm-12 col-xs-8">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Screen name" id="screenName">
+                                </div>
+                                <div class="input-group form-group screenName">
+                                    <p class="text-danger">Screen name is required</p>
+                                </div>
+                            </div>
+                            <!-- end of screen name -->
                             <div class="col-sm-12">
                                 <div class="input-group form-group mb15 col-md-12 col-sm-12 col-xs-8">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>

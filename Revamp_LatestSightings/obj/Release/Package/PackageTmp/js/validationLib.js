@@ -19,12 +19,7 @@
                         $("div .email").html("<p class='text-danger'>Email Address already exists</p>");
                         $("div .email").show();
                     } else {
-                        $(".registerSpinner").show();
-                        $("#firstname").attr("disabled", "disabled");
-                        $("#lastname").attr("disabled", "disabled");
-                        $("#email").attr("disabled", "disabled");
-                        $("#password").attr("disabled", "disabled");
-                        SaveRegistration($("#firstname").val(), $("#lastname").val(), $("#email").val(), $("#password").val());
+                        DoesScreenNameExists($("#screenName").val());
                     }
                 }
             ).fail(
@@ -34,6 +29,36 @@
         }
 
     });
+
+
+    function DoesScreenNameExists(screenName) {
+        var postUrl = "/AjaxOperation.aspx/DoesScreenNameExist";
+            $.ajax({
+                type: "POST",
+                url: postUrl,
+                data: "{'screenName' : '" + screenName + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(
+                function (data, textStatus, jqXHR) {
+                    if (data.d == true) {
+                        $("div .screenName").prev().addClass("has-error");
+                        $("div .screenName").html("<p class='text-danger'>Screen Name already exists</p>");
+                        $("div .screenName").show();
+                    } else {
+                        $(".registerSpinner").show();
+                        $("#firstname").attr("disabled", "disabled");
+                        $("#lastname").attr("disabled", "disabled");
+                        $("#email").attr("disabled", "disabled");
+                        $("#password").attr("disabled", "disabled");
+                        SaveRegistration($("#firstname").val(), $("#lastname").val(), $("#email").val(), $("#password").val(), $("#screenName").val());
+                    }
+                }
+            ).fail(
+                function (data, textStatus, jqXHR) {
+                }
+            );
+    }
 
     $(".submitLogin").click(function () {
         $(".invalidCredentials").hide();
@@ -190,6 +215,12 @@
             valid = false;
         }
 
+        if (isEmpty("#screenName")) {
+            $("div .screenName").prev().addClass("has-error");
+            $("div .screenName").show();
+            valid = false;
+        }
+
         return valid;
     }
 
@@ -311,6 +342,7 @@
         ClearErrorStateOfTextBox(".password");
         ClearErrorStateOfTextBox(".confirmPassword");
         ClearErrorStateOfTextBox(".confirmPassword");
+        ClearErrorStateOfTextBox(".screenName");
     }
 
     function HideMessageErrors() {
@@ -319,6 +351,7 @@
         HideErrorMessage(".email");
         HideErrorMessage(".password");
         HideErrorMessage(".confirmPassword");
+        HideErrorMessage(".screenName");
     }
 
     function isValidEmailAddress(emailAddress) {
@@ -326,12 +359,12 @@
         return pattern.test(emailAddress);
     }
 
-    function SaveRegistration(firstname, lastname, email, password) {
+    function SaveRegistration(firstname, lastname, email, password, screenName) {
         var postUrl = "/AjaxOperation.aspx/SaveRegistrationData";
         $.ajax({
             type: "POST",
             url: postUrl,
-            data: "{'firstname' : '" + firstname + "', 'lastname' : '" + lastname + "', 'email' : '" + email + "', 'password' : '" + password + "'}",
+            data: "{'firstname' : '" + firstname + "', 'lastname' : '" + lastname + "', 'email' : '" + email + "', 'password' : '" + password + "', 'screenName' : '" + screenName + "'}",
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         }).done(
@@ -699,6 +732,6 @@
     LoginIfOnLoginPageAndRememberMeIsSet();
 
     $("#videoListTab").click(function () {
-        $("#content-inner").css("height", "1458px");
+        $("#content-inner").css("height", "1650px");
     });
 });
