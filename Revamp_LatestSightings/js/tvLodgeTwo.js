@@ -137,7 +137,7 @@ function setTingCounter(number) {
 }
 
 function rememberLodgeName() {
-    friendlyLodgeName = $($(".bd-title")[0]).html();
+    friendlyLodgeName = $("#lodgeName").val();
 }
 
 function SetKrugerTitleHeaderTingName() {
@@ -168,12 +168,14 @@ function moveArrow(percentage) {
 }
 
 $(document).ready(function () {
+    console.log(LODGEJson);
+
     rememberLodgeName();
-    displayTings();
-    initialize();
-    init_carousel();
-    setTingCounter(LODGEJson.length);
-    populateTingsHtml(LODGEJson);
+    //displayTings();
+    //initialize();
+    //init_carousel();
+    //setTingCounter(LODGEJson.length);
+    //populateTingsHtml(LODGEJson);
 
     function displayTings() {
         displayLodge(LODGEJson[counter]);

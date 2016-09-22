@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/css/jquery.bxslider.css") %>">
 
     <script src="<%= ResolveUrl("~/js/jquery-2.1.1.min.js") %>"></script>
-<%--    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=1") %>"></script>--%>
+    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=3") %>"></script>
 
 </head>
 <body>
     <form id="form1" runat="server">
+        <input type="hidden" id="lodgeName" value="<%= lodgeName %>" />
     <div id="aspectRatio" class="bd-wrapper">
         <!-- Header -->
         <div class="bd-hdr">
@@ -32,7 +33,9 @@
                 </h1>
             </div>
             <div class="logo-right">
-                <img src="/images/ngwenya_logo.png">
+                <% if (!String.IsNullOrEmpty(lodoid)){ %>
+                    <img src="<%= ConfigurationManager.AppSettings["lodgeImageFolderUrl"] %><%= lodoid%>">
+                <%} %>
             </div>
         </div>
         <!-- Main Content -->
@@ -140,7 +143,11 @@
         <!-- Footer -->
         <div class="bd-footer">
             <div class="footer-txt-wrap">
-                <div class="footer-txt">Download Latest Sightings now and share <strong>YOUR</strong> sightings. Remember to stream to Ngwenya Lodge.</div>
+                <div class="footer-txt">Download Latest Sightings now and share <strong>YOUR</strong> sightings. Remember to stream to
+                    <% if (!String.IsNullOrEmpty(lodgeName)){%> 
+                        <%= lodgeName %>
+                    <%} %>
+                    Lodge.</div>
             </div>
             <div class="stores">
                 <img src="/images/qr_code.jpg">

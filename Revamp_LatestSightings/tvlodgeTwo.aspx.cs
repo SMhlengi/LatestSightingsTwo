@@ -65,6 +65,7 @@ namespace Revamp_LatestSightings
             int counter = 0;
             string stringDate = "";
             stringDate = String.Format("{0}", Convert.ToString(dt.Year) + "-" + Convert.ToString(dt.Month) + "-" + Convert.ToString(dt.Day));
+            stringDate = "2016-07-12";
             lodgeTings = new List<Dictionary<string, string>>();
             lodgeTings = library.GetLodgeTingsByDate(lodge["id"], stringDate);
             while (lodgeTings.Count == 0)
