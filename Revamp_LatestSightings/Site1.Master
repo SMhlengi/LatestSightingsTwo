@@ -50,6 +50,7 @@
     
 
     <script>
+        var indexOfLastTing = 0;
         var VideoUpload = false;
         var ImageUpload = false;
         var CaptureVideoDetails = false;

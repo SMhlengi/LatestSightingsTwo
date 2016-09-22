@@ -26,7 +26,6 @@ window.onload = function () {
 // Refer to this link for customisation options: http://bxslider.com/options
 
 $(document).ready(function () {
-    var indexOfLastTing = 4;
 
   $('.bxslider').bxSlider({
       mode: 'vertical',

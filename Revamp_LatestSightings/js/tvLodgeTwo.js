@@ -1,4 +1,32 @@
-﻿var LODGEJson = [];
+﻿// Page Aspect Ratio ------------------------------
+
+// Script credit: http://stackoverflow.com/users/1902943/mcsharp
+// Found here: http://stackoverflow.com/questions/20590239/maintain-aspect-ratio-of-div-but-fill-screen-width-and-height-in-css
+
+window.onload = function () {
+    //Let's create a function that will scale an element with the desired ratio
+    //Specify the element id, desired width, and height
+    function keepAspectRatio(id, width, height) {
+        var aspectRatioDiv = document.getElementById(id);
+        aspectRatioDiv.style.width = window.innerWidth;
+        aspectRatioDiv.style.height = (window.innerWidth / (width / height)) + "px";
+    }
+
+    //run the function when the window loads
+    keepAspectRatio("aspectRatio", 16, 9);
+
+    //run the function every time the window is resized
+    window.onresize = function (event) {
+        keepAspectRatio("aspectRatio", 16, 9);
+    }
+}
+
+// Carousel ----------------------------------------
+
+// Refer to this link for customisation options: http://bxslider.com/options
+
+
+var LODGEJson = [];
 var tingImageFolderUrl = "";
 var myVar = "";
 var mapsTimeoutVariable = "";
@@ -93,13 +121,47 @@ function init_carousel() {
     /* =  portfolio OWL Carousel
 	/*-------------------------------------------------*/
     try {
-        $("#owl-slider").owlCarousel({
-            autoPlay: 12000,
-            items: 4,
-            pagination: false,
-            rewindNav: false,
-            itemsDesktop: [1199, 3],
-            itemsDesktopSmall: [979, 3]
+        $('.bxslider').bxSlider({
+            mode: 'vertical',
+            speed: 600,
+            slideMargin: 0,
+            auto: true,
+            minSlides: 4,
+            maxSlides: 4,
+            moveSlides: 1,
+            pager: false,
+            controls: false,
+            adaptiveHeight: false,
+            onSlideAfter: function ($slideElement, oldIndex, newIndex) {
+                //console.log($slideElement);
+                //console.log(oldIndex);
+                //console.log(newIndex);
+                $($slideElement[0]).addClass("active");
+
+                if (oldIndex == indexOfLastTing) {
+                    //console.log($slideElement.prevObject[indexOfLastTing]);
+                    $($slideElement.prevObject[indexOfLastTing]).removeClass("active");
+                } else {
+                    $($slideElement[0]).prev().removeClass("active");
+                }
+
+                //console.log($($slideElement).prev());
+
+                // get active item 
+                //var currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
+                //// remove active class on last item
+                //$($(currentActiveItem)[1]).removeClass("active");
+                //// get next soon to be active Item
+                //var nextSoonBeActiveItem = $($(".bxslider .active")[0]).next();
+                //$($(currentActiveItem)[0]).removeClass("active");
+                //$(nextSoonBeActiveItem).addClass("active");          
+            },
+            onSliderLoad: function () {
+                // get active item 
+                var currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
+                // remove active class on last item
+                $($(currentActiveItem)[1]).removeClass("active");
+            }
         });
     } catch (err) {
 
@@ -114,21 +176,24 @@ function destroy_carousel() {
 function populateTingsHtml(tings) {
     console.log("---populateTingsHtml---");
     console.log(tings);
-    var tingTemplate = '<div class="related-portfolio-item item ting">' +
-               '<a href="#">' +
-				'<div class="ls-member">' +
-					'<div class="ls-info"><img alt="" src="#tingimage#" class=""></div>' +
-					'<div class="ls-title">' +
-						'<h4>#title#</h4>' +
-						'<p>#time#</p>' +
-					'</div>' +
-				'</div>' +
-            '</a>' +
-		'</div>';
+    var tingTemplate = '<li class="#activeStatus#">' +
+                            '<div class="pic">' +
+                                '<img src="#tingimage#"/>' +
+                            '</div>' +
+                            '<div class="info">' +
+                                '<h3>#title#</h3>' +
+                                '<h5 class="datetime">#time#</h5>' +
+                            '</div>' +
+                        '</li>';
     var ting = "";
     for (var i = 0; i < tings.length; i++) {
-        ting = tingTemplate.replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
-        $("#owl-slider").data('owlCarousel').addItem(ting);
+        if (i == 0) {
+            ting += tingTemplate.replace("#activeStatus#","active").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
+        } else {
+            ting += tingTemplate.replace("#activeStatus#", "").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
+        }
+        
+        $(".bxslider").html(ting);
     }
 }
 
@@ -167,15 +232,23 @@ function moveArrow(percentage) {
     }
 }
 
+
+function setIndexOfLastTing() {
+    indexOfLastTing = LODGEJson.length - 1;
+    console.log("INDEX OF LAST ITEM");
+    console.log(indexOfLastTing);
+}
+
 $(document).ready(function () {
     console.log(LODGEJson);
 
     rememberLodgeName();
+    setIndexOfLastTing();
     //displayTings();
     //initialize();
-    //init_carousel();
     //setTingCounter(LODGEJson.length);
-    //populateTingsHtml(LODGEJson);
+    populateTingsHtml(LODGEJson);
+    init_carousel();
 
     function displayTings() {
         displayLodge(LODGEJson[counter]);
@@ -341,7 +414,6 @@ $(document).ready(function () {
 
     function displayLodge(lodgeDetails) {
         console.log(lodgeDetails);
-        debugger;
 
         showTingInformation();
         LODGE_lat = lodgeDetails.latitude;

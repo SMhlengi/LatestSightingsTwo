@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/css/jquery.bxslider.css") %>">
 
     <script src="<%= ResolveUrl("~/js/jquery-2.1.1.min.js") %>"></script>
-    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=3") %>"></script>
+    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=9") %>"></script>
 
 </head>
 <body>
@@ -47,51 +47,6 @@
                 </div>
                 <!-- Carousel -->
                 <ul class="bxslider">
-                    <li class="active">
-                        <div class="pic">
-                            <img src="/images/thumb1.jpg"/>
-                        </div>
-                        <div class="info">
-                            <h3>Baby elephant and it's mother</h3>
-                            <h5 class="datetime">Today @ 10:09 am</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/images/nothumb.jpg"/>
-                        </div>
-                        <div class="info">
-                            <h3>Giraffe grazing</h3>
-                            <h5 class="datetime">Today @ 11:38 pm</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/images/thumb2.jpg"/>
-                        </div>
-                        <div class="info">
-                            <h3>6 Lions on a kill</h3>
-                            <h5 class="datetime">Today @ 14:21 am</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/images/thumb3.jpg"/>
-                        </div>
-                        <div class="info">
-                            <h3>Family of zebras</h3>
-                            <h5 class="datetime">Today @ 15:44 am</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/images/thumb4.jpg"/>
-                        </div>
-                        <div class="info">
-                            <h3>Rare rhino</h3>
-                            <h5 class="datetime">Today @ 16:39 am</h5>
-                        </div>
-                    </li>
                 </ul>
             </div>
             <div class="rightcol">
@@ -156,7 +111,6 @@
     </div>
 
 
-<script src="<%= ResolveUrl("~/js/board.js?v=13") %>"></script>
 <script src="<%= ResolveUrl("~/js/jquery.bxslider.min.js") %>"></script>
 </form>
 </body>
