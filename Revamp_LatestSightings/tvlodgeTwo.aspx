@@ -43,7 +43,7 @@
             <div class="leftcol">
                 <!-- Video -->
                 <div class="video">
-                    <img src="/images/vid_place.jpg">
+                    <iframe width="420" height="220" src="https://www.youtube.com/embed/videoseries?list=PL_K2CjlrV2nD_V9wDQPSGAkIo5o5wzhYV" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <!-- Carousel -->
                 <ul class="bxslider">
