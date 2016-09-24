@@ -325,6 +325,7 @@
     <Content Include="js\validationLib.js" />
     <Content Include="js\waypoints.min.js" />
     <Content Include="js\widgets.js" />
+    <Content Include="js\workingBxSliderTransition.js" />
     <Content Include="js\youtubeSearchResults.js" />
     <Content Include="lodges.aspx" />
     <Content Include="lodges.html" />
