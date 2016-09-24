@@ -7,12 +7,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LS Sightings Board</title>
-    <link rel="stylesheet" href="<%= ResolveUrl("~/css/board.css")%>">
+    <link rel="stylesheet" href="<%= ResolveUrl("~/css/board.css?v=3")%>">
     <link rel="stylesheet" href="<%= ResolveUrl("~/css/font-awesome.min.css") %>">
     <link rel="stylesheet" href="<%= ResolveUrl("~/css/jquery.bxslider.css") %>">
-
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB3O6AqwnZ3uHY0h6ulDrxlAWXXrs99VqI"></script>
     <script src="<%= ResolveUrl("~/js/jquery-2.1.1.min.js") %>"></script>
-    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=9") %>"></script>
+    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=13") %>"></script>
 
 </head>
 <body>
@@ -43,7 +43,7 @@
             <div class="leftcol">
                 <!-- Video -->
                 <div class="video">
-                    <iframe width="420" height="220" src="https://www.youtube.com/embed/videoseries?list=PL_K2CjlrV2nD_V9wDQPSGAkIo5o5wzhYV" frameborder="0" allowfullscreen></iframe>
+                    <%--<iframe width="420" height="220" src="https://www.youtube.com/embed/videoseries?list=PL_K2CjlrV2nD_V9wDQPSGAkIo5o5wzhYV" frameborder="0" allowfullscreen></iframe>--%>
                 </div>
                 <!-- Carousel -->
                 <ul class="bxslider">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <!-- Map placeholder -->
-                    <img src="/images/map_place.jpg" style="width:100%;">
+                    <div id="map-canvas" style="width: 100%; height: 690px"></div>
                 </div>
             </div>
         </div>

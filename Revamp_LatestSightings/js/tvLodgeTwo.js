@@ -161,6 +161,7 @@ function init_carousel() {
                 var currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
                 // remove active class on last item
                 $($(currentActiveItem)[1]).removeClass("active");
+                console.log("SLIDER READY !!!!!!!!!!");
             }
         });
     } catch (err) {
@@ -235,18 +236,18 @@ function moveArrow(percentage) {
 
 function setIndexOfLastTing() {
     indexOfLastTing = LODGEJson.length - 1;
-    console.log("INDEX OF LAST ITEM");
-    console.log(indexOfLastTing);
+    //console.log("INDEX OF LAST ITEM");
+    //console.log(indexOfLastTing);
 }
 
 $(document).ready(function () {
-    console.log(LODGEJson);
+    //console.log(LODGEJson);
 
     rememberLodgeName();
     setIndexOfLastTing();
-    //displayTings();
-    //initialize();
-    //setTingCounter(LODGEJson.length);
+    displayTings();
+    initialize();
+    setTingCounter(LODGEJson.length);
     populateTingsHtml(LODGEJson);
     init_carousel();
 
@@ -413,8 +414,6 @@ $(document).ready(function () {
     }
 
     function displayLodge(lodgeDetails) {
-        console.log(lodgeDetails);
-
         showTingInformation();
         LODGE_lat = lodgeDetails.latitude;
         LODGE_long = lodgeDetails.longitude;
