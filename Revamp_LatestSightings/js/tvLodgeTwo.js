@@ -141,6 +141,9 @@ function init_carousel() {
                 if (oldIndex == indexOfLastTing) {
                     //console.log($slideElement.prevObject[indexOfLastTing]);
                     $($slideElement.prevObject[indexOfLastTing]).removeClass("active");
+                    // slider has to be destroyed on the last item 
+                    // wait a couple of seconds 
+
                 } else {
                     $($slideElement[0]).prev().removeClass("active");
                 }
@@ -207,7 +210,8 @@ function rememberLodgeName() {
 }
 
 function SetKrugerTitleHeaderTingName() {
-    $($(".page-titles")[0]).html("Kruger Park Tings");
+    console.log("Setting up Kruger National Park tings");
+    //$($(".page-titles")[0]).html("Kruger Park Tings");
 }
 
 function SetLodgeTittleHeaderTingName() {
@@ -283,11 +287,9 @@ $(document).ready(function () {
 
     function showHideTingsCarousel(status) {
         if (status == "hidden") {
-            $($(".col-md-12")[1]).css("visibility", status);
-            $(".arrowrow").css("visibility", status);
+            $(".bx-wrapper").css("visibility", status);
         } else {
-            $($(".col-md-12")[1]).css("visibility", status);
-            $(".arrowrow").css("visibility", status);
+            $(".bx-wrapper").css("visibility", status);
         }
     }
 
@@ -418,15 +420,15 @@ $(document).ready(function () {
         LODGE_lat = lodgeDetails.latitude;
         LODGE_long = lodgeDetails.longitude;
 
-        $("#lodgeImage").attr("src", tingImageFolderUrl + lodgeDetails.id);
+        //$("#lodgeImage").attr("src", tingImageFolderUrl + lodgeDetails.id);
         // http://tingsservice.socialengine.co.za/uploads/1577F3D3-B3AB-4FA7-A46A-22D20E65EE03.jpg
-        $("#lodgeTitle").html(lodgeDetails.title);
-        $("#desc").html(lodgeDetails.description);
-        $("#location").html(lodgeDetails.location);
-        $("#tingedBy").html("Tinged by: " + lodgeDetails.username);
-        $("#time").html(lodgeDetails.time);
+        //$("#lodgeTitle").html(lodgeDetails.title);
+        //$("#desc").html(lodgeDetails.description);
+        //$("#location").html(lodgeDetails.location);
+        //$("#tingedBy").html("Tinged by: " + lodgeDetails.username);
+        //$("#time").html(lodgeDetails.time);
         //$("#visibility_traffic").html("Visibility: " + lodgeDetails.visibility + " | Traffic: " + lodgeDetails.traffic);
-        $("#visibility_traffic").html("Visibility: " + ReturnVisibilityStar(parseInt(lodgeDetails.visibility)) + " | Traffic: " + ReturnTraffic(parseInt(lodgeDetails.traffic)));
+        //$("#visibility_traffic").html("Visibility: " + ReturnVisibilityStar(parseInt(lodgeDetails.visibility)) + " | Traffic: " + ReturnTraffic(parseInt(lodgeDetails.traffic)));
     }
 
     function ReturnVisibilityStar(starsCount) {
@@ -477,8 +479,8 @@ $(document).ready(function () {
     }
 
     function showTingInformation() {
-        $("#lodgeTitle").show();
-        $(".NoBottomMargin").show();
+        //$("#lodgeTitle").show();
+        //$(".NoBottomMargin").show();
     }
 
 
