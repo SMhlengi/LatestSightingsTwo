@@ -155,6 +155,7 @@
     <Content Include="css\tvLodge.css" />
     <Content Include="css\userFinancials.css" />
     <Content Include="css\videopreview.css" />
+    <Content Include="css\workingBoard.css" />
     <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
     <Content Include="financialsTest.aspx" />
@@ -165,6 +166,7 @@
     <Content Include="galleryfilter.aspx" />
     <Content Include="galleryview.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="googleMaps.html" />
     <Content Include="holidays.aspx" />
     <Content Include="htings.aspx" />
     <Content Include="imageModal.aspx" />

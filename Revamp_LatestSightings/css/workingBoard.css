@@ -1,0 +1,335 @@
+﻿/* GENERAL
+--------------------------------------*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.bd-wrapper {
+    width: 100%;
+    max-width: 1920px;
+    height: 100%;
+    max-height: 1080px;
+    position: relative;
+    background-color: #fff;
+    padding: 3% 0;
+    overflow: hidden;
+}
+
+p, h1, h3, h5 {
+    margin: 0;
+}
+
+p {
+    font-size: 0.85rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 0.75rem;
+}
+
+/* HEADER
+--------------------------------------*/
+
+.bd-hdr {
+    width: 100%;
+    height: 12%;
+    padding: 0 5% 1% 5%;
+    position: relative;
+    display: table;
+}
+
+.logo-left,
+.logo-right {
+    width: 20%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.logo-left img {
+    float: left;
+    height: 3.75rem;
+}
+
+.logo-right img {
+    float: right;
+    height: 3.75rem;
+}
+
+.bd-title {
+    width: 60%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    color: #2a1403;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.bd-title h1 {
+    font-weight: 100;
+}
+
+/* MAIN CONTENT
+--------------------------------------*/
+
+.bd-inner {
+    width: 100%;
+    height: 76%;
+    padding: 2% 5%;
+    box-sizing: border-box;
+    background-color: #ede4db;
+    float: left;
+}
+
+.leftcol {
+    width: 25%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.rightcol {
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+
+.video {
+    width: 96%;
+    margin-bottom: 3%;
+}
+
+.video img {
+    width: 100%;
+    height: auto;
+}
+
+.map {
+    border: 3px solid #bb9975;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card {
+    float: right;
+    /*width: 37%; */
+    height: 48%;
+    background-color: #fff;
+    /*position: absolute;*/
+    top: 6%;
+    right: 3%;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+}
+
+.card img {
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+.info-wrap {
+    width: 100%;
+    padding: 2% 1%;
+    float: left;
+}
+
+.profile,
+.location,
+.detail,
+.des {
+    width: 100%;
+    float: left;
+}
+
+.profile {
+    margin-bottom: 4%;
+}
+
+.detail,
+.des {
+    margin-bottom: 4%;
+}
+
+.profile img {
+    width: 3.125rem;
+    height: 3.125rem;
+    float: left;
+    border-radius: 50%;
+    border: 2px solid #f69121;
+}
+
+.profile-txt {
+    width: 77%;
+    float: left;
+    text-align: left;
+    color: #564338;
+    margin-left: 4%;
+    line-height: 1.5rem;
+}
+
+.profile{
+	display:none;
+}
+
+.location p,
+.des p {
+    color: #2a1403;
+    font-weight: 400;
+    line-height: 1.313rem;
+}
+
+.detail .visibility,
+.detail .traffic {
+    width: 50%;
+    float: left;
+}
+
+.detail h5 {
+    font-weight: 400;
+    color: #564338;
+}
+
+.detail .visibility {
+    text-align: left;
+}
+
+.detail .traffic {
+    text-align: right;
+}
+
+.stars {
+    color: #f69121;
+}
+
+/* Carousel */
+
+.bx-viewport {
+    height: 100% !important;
+}
+
+.bxslider {
+    padding: 0;
+}
+
+.bxslider li {
+    display: inline-block;
+    margin-bottom: -4px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(187, 153, 117, 0.5);
+}
+
+.bxslider li .pic {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    float: left;
+}
+
+.bxslider li img {
+    height: 100%;
+}
+
+.bxslider .info {
+    width: 70%;
+    float: left;
+    padding: 0.75rem 1rem;
+}
+
+.bxslider .info h3 {
+    color: #564338;
+}
+
+.bxslider .info h5 {
+    color: #888;
+    font-weight: 400;
+    padding-top: 2px;
+}
+
+.bxslider .active {
+    background-color: #bb9975;
+}
+
+.bxslider .active h3,
+.bxslider .active h5 {
+    color: #2a1403;
+}
+
+/* FOOTER
+--------------------------------------*/
+
+.bd-footer {
+    width: 100%;
+    height: 12%;
+    padding: 1% 5% 0 5%;
+    position: relative;
+    display: table;
+}
+
+.footer-txt-wrap {
+    width: 80%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.footer-txt {
+    height: 1.5rem;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    overflow: hidden;
+    color: #333;
+}
+
+.stores {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.stores img {
+    float: right;
+    height: 3.75rem;
+}
+
+/* RESPONSIVE STYLES
+--------------------------------------*/
+
+@media screen and (min-width: 1920px) {
+    html {
+        font-size: 20px;
+    }
+    
+    .bxslider li {
+        margin-bottom: -5px;
+    }
+    
+    .bxslider li .pic {
+        width: 100px;
+        height: 100px;
+    }
+}
