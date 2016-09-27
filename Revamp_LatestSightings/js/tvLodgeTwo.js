@@ -263,13 +263,13 @@ $(document).ready(function () {
     function displayNewLodge() {
         if (counter != (LODGEJson.length - 1)) {
             counter += 1;
-            if (counter == LODGEJson.length - 3) {
-                moveArrow("30%");
-            } else if (counter == LODGEJson.length - 2) {
-                moveArrow("36%");
-            } else if (counter == LODGEJson.length - 1) {
-                moveArrow("10%");
-            }
+            //if (counter == LODGEJson.length - 3) {
+            //    moveArrow("30%");
+            //} else if (counter == LODGEJson.length - 2) {
+            //    moveArrow("36%");
+            //} else if (counter == LODGEJson.length - 1) {
+            //    moveArrow("10%");
+            //}
             displayLodge(LODGEJson[counter]);
         } else {
             myStopFunction();
@@ -420,6 +420,47 @@ $(document).ready(function () {
         LODGE_lat = lodgeDetails.latitude;
         LODGE_long = lodgeDetails.longitude;
 
+        var cardDiv = '<div class="card"> ' +
+            '<img src="#lodgeImage#"> ' +
+            '<div class="info-wrap"> ' +
+                '<div class="profile">' +
+                    '<img src="images/profilepic.jpg"> ' +
+                    '<div class="profile-txt"> ' +
+                        '<p>#tingedBy#</p>' +
+                        '<h3>#lodgeTitle#</h3>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="location">' +
+                    '<p>#location#</p>' +
+                '</div>' +
+                '<div class="detail">' +
+                    '<div class="visibility"> ' +
+                        '<div class="stars">' +
+                            '#visibility_stars#' +
+                        '</div>' +
+                        '<h5>Visibility</h5>' +
+                    '</div>' +
+                    '<div class="traffic">' +
+                        '<div>' +
+                            '#visibility_traffic#' +
+                        '</div>' +
+                        '<h5>Traffic</h5>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="#lodgedesc#">' +
+                    '<p>A wary mother leading its baby across the road and on the lookout for predators. </p>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+        
+        var TingImage = tingImageFolderUrl + lodgeDetails.id;
+        var tingedBy = "Tinged by: " + lodgeDetails.username;
+        var TingTitle = lodgeDetails.title;
+        var Tingdesc = lodgeDetails.description;
+        var Tinglocation = lodgeDetails.location;
+        var VisibilityStar = ReturnVisibilityStar(parseInt(lodgeDetails.visibility));
+        var VisibilityTraffic = ReturnTraffic(parseInt(lodgeDetails.traffic));
+
         //$("#lodgeImage").attr("src", tingImageFolderUrl + lodgeDetails.id);
         // http://tingsservice.socialengine.co.za/uploads/1577F3D3-B3AB-4FA7-A46A-22D20E65EE03.jpg
         //$("#lodgeTitle").html(lodgeDetails.title);
@@ -432,31 +473,33 @@ $(document).ready(function () {
     }
 
     function ReturnVisibilityStar(starsCount) {
-        htmlStars = "";
+
+        var htmlStars = "";
+
         for (var i = 0; i < starsCount; i++) {
-            htmlStars += '<img src="/images/ic_star.svg" id="lodgeImage" width="100%" style="height: 16px; display: inline; width: 19px;">';
+            htmlStars += '<i class="fa fa-star"></i>';
         }
 
         for (var i = starsCount; i < 5; i++) {
-            htmlStars += '<img src="/images/ic-starline.svg" id="lodgeImage" width="100%" style="height: 16px; display: inline; width: 19px;">';
+            htmlStars += '<i class="fa fa-star-o"></i>';
         }
 
         return htmlStars;
     }
 
     function ReturnTraffic(starsCount) {
+        var htmlStars = "";
 
-        switch (starsCount) {
-            case 1:
-                return '<img src="/images/ic-greencar.svg" id="lodgeImage" width="100%" style="height: 16px; display: inline; width: 19px;">';
-                break;
-            case 2:
-                return '<img src="/images/ic-orangecar.svg" id="lodgeImage" width="100%" style="height: 16px; display: inline; width: 19px;">';
-            case 3:
-                return '<img src="/images/ic-redcar.svg" id="lodgeImage" width="100%" style="height: 16px; display: inline; width: 19px;">';
+
+        for (var i = 0; i < starsCount; i++) {
+            htmlStars += '<i class="fa fa-circle"></i>';
         }
 
-        return "";
+        for (var i = starsCount; i < 5; i++) {
+            htmlStars += '<i class="fa fa-circle-thin"></i>';
+        }
+
+        return htmlStars;
     }
 
     function setUpDisplayAllMarkersInOneMap() {

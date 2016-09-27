@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -108,6 +108,14 @@
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
+
+        setTimeout(function () {
+            infowindow.open(map, marker);
+        }, 3000);
+
+        setTimeout(function () {
+            infowindow.close();
+        }, 6000);
       }
     </script>
     <script async defer

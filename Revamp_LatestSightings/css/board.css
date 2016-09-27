@@ -137,24 +137,24 @@ h5 {
 
 .card {
     float: right;
-    width: 37%;
-    height: 88%;
+    /*width: 37%; */
+    height: 48%;
     background-color: #fff;
-    position: absolute;
+    /*position: absolute;*/
     top: 6%;
     right: 3%;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
 }
 
 .card img {
-    width: 100%;
+    width: 50%;
     height: auto;
     float: left;
 }
 
 .info-wrap {
     width: 100%;
-    padding: 5% 6%;
+    padding: 2% 1%;
     float: left;
 }
 
@@ -192,6 +192,9 @@ h5 {
     line-height: 1.5rem;
 }
 
+.profile img{
+	display:none;
+}
 .location p,
 .des p {
     color: #2a1403;
