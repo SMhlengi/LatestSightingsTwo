@@ -37,9 +37,11 @@ var LODGE_lat = "";
 var LODGE_long = "";
 var markers = [];
 var map;
+var infowindow;
 var showKrugerTings = false;
 var friendlyLodgeName = "";
 var tingsCounter = "";
+var TingOverlay = "";
 
 function setLodgeTingers(json, FolderUrl, name, id) {
     LODGEJson = json;
@@ -93,6 +95,10 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
+    infowindow = new google.maps.InfoWindow({
+        content: TingOverlay
+    });
+
     marker = new google.maps.Marker({
         position: map.getCenter(),
         animation: google.maps.Animation.DROP,
@@ -100,10 +106,13 @@ function initialize() {
     });
     markers.push(marker);
 
+    infowindow.open(map, marker);
+
 
     mapsTimeoutVariable = setInterval(function () { displayNewMap() }, 12000);
 
     function displayNewMap() {
+        infowindow.close();
         marker.setMap(null);
         map.setCenter({ lat: parseFloat(LODGE_lat), lng: parseFloat(LODGE_long) });
         marker = new google.maps.Marker({
@@ -112,6 +121,7 @@ function initialize() {
             animation: google.maps.Animation.DROP,
         });
         markers.push(marker);
+        infowindow.open(map, marker);
     }
 
 }
@@ -416,18 +426,18 @@ $(document).ready(function () {
     }
 
     function displayLodge(lodgeDetails) {
-        showTingInformation();
+        //showTingInformation();
         LODGE_lat = lodgeDetails.latitude;
         LODGE_long = lodgeDetails.longitude;
 
-        var cardDiv = '<div class="card"> ' +
-            '<img src="#lodgeImage#"> ' +
+        TingOverlay = '<div class="card"> ' +
+            '<img src="#TingImage#"> ' +
             '<div class="info-wrap"> ' +
                 '<div class="profile">' +
                     '<img src="images/profilepic.jpg"> ' +
                     '<div class="profile-txt"> ' +
                         '<p>#tingedBy#</p>' +
-                        '<h3>#lodgeTitle#</h3>' +
+                        '<h3>#TingTitle#</h3>' +
                     '</div>' +
                 '</div>' +
                 '<div class="location">' +
@@ -447,12 +457,12 @@ $(document).ready(function () {
                         '<h5>Traffic</h5>' +
                     '</div>' +
                 '</div>' +
-                '<div class="#lodgedesc#">' +
-                    '<p>A wary mother leading its baby across the road and on the lookout for predators. </p>' +
+                '<div class="des">' +
+                    '<p>#tingdesc# </p>' +
                 '</div>' +
             '</div>' +
         '</div>';
-        
+
         var TingImage = tingImageFolderUrl + lodgeDetails.id;
         var tingedBy = "Tinged by: " + lodgeDetails.username;
         var TingTitle = lodgeDetails.title;
@@ -460,6 +470,8 @@ $(document).ready(function () {
         var Tinglocation = lodgeDetails.location;
         var VisibilityStar = ReturnVisibilityStar(parseInt(lodgeDetails.visibility));
         var VisibilityTraffic = ReturnTraffic(parseInt(lodgeDetails.traffic));
+
+        TingOverlay = TingOverlay.replace("#TingImage#", TingImage).replace("#tingedBy#", tingedBy).replace("#TingTitle#", TingTitle).replace("#location#", Tinglocation).replace("#visibility_stars#", VisibilityStar).replace("#visibility_traffic#", VisibilityTraffic).replace("#tingdesc#", Tingdesc);
 
         //$("#lodgeImage").attr("src", tingImageFolderUrl + lodgeDetails.id);
         // http://tingsservice.socialengine.co.za/uploads/1577F3D3-B3AB-4FA7-A46A-22D20E65EE03.jpg

@@ -52,44 +52,6 @@
             <div class="rightcol">
                 <!-- Map -->
                 <div class="map">
-                    <div class="card">
-                        <img src="/images/cardpic_place.jpg">
-                        <div class="info-wrap">
-                            <div class="profile">
-                                <img src="/images/profilepic.jpg">
-                                <div class="profile-txt">
-                                    <p>JonnyB</p>
-                                    <h3>Baby elephant and its mother</h3>
-                                </div>
-                            </div>
-                            <div class="location">
-                                <p>H1-4</p>
-                            </div>
-                            <div class="detail">
-                                <div class="visibility">
-                                    <div class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>Visibility</h5>
-                                </div>
-                                <div class="traffic">
-                                    <div>
-                                        <i class="fa fa-circle"></i>
-                                        <i class="fa fa-circle-thin"></i>
-                                        <i class="fa fa-circle-thin"></i>
-                                    </div>
-                                    <h5>Traffic</h5>
-                                </div>
-                            </div>
-                            <div class="des">
-                                <p>A wary mother leading its baby across the road and on the lookout for predators. </p>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Map placeholder -->
                     <div id="map-canvas" style="width: 100%; height: 690px"></div>
                 </div>
