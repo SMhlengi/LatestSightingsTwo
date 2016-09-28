@@ -26,7 +26,7 @@ window.onload = function () {
 // Refer to this link for customisation options: http://bxslider.com/options
 
 $(document).ready(function () {
-    var indexOfLastTing = 4;
+    //var indexOfLastTing = 4;
     var currentActiveItem;
     var lastActiveItemBeforeSliderDestroy;
     reload = false;

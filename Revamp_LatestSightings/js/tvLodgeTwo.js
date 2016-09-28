@@ -105,8 +105,7 @@ function initialize() {
         map: map
     });
     markers.push(marker);
-
-    infowindow.open(map, marker);
+    setTimeout(function () { infowindow.open(map, marker); }, 1000);
 
 
     mapsTimeoutVariable = setInterval(function () { displayNewMap() }, 12000);
@@ -121,7 +120,8 @@ function initialize() {
             animation: google.maps.Animation.DROP,
         });
         markers.push(marker);
-        infowindow.open(map, marker);
+        infowindow.setContent(TingOverlay);        
+        setTimeout(function () { infowindow.open(map, marker); }, 1000);
     }
 
 }
@@ -211,7 +211,7 @@ function populateTingsHtml(tings) {
     }
 }
 
-function setTingCounter(number) {
+function setTingsCounter(number) {
     tingsCounter = number;
 }
 
@@ -261,9 +261,9 @@ $(document).ready(function () {
     setIndexOfLastTing();
     displayTings();
     initialize();
-    setTingCounter(LODGEJson.length);
-    populateTingsHtml(LODGEJson);
-    init_carousel();
+    setTingsCounter(LODGEJson.length);
+    //populateTingsHtml(LODGEJson);
+    //init_carousel();
 
     function displayTings() {
         displayLodge(LODGEJson[counter]);
@@ -307,11 +307,12 @@ $(document).ready(function () {
         counter = 0;
         clearInterval(myVar);
         clearInterval(mapsTimeoutVariable);
-        setUpDisplayAllMarkersInOneMap();
-        UpdateKrugerFlag();
-        showHideTingsCarousel("hidden");
+        console.log("STOPPED!!!!!");
+        //setUpDisplayAllMarkersInOneMap();
+        //UpdateKrugerFlag();
+        //showHideTingsCarousel("hidden");
 
-        t = setTimeout(function () {
+        /*t = setTimeout(function () {
             if (showKrugerTings == true) {
                 SetKrugerTitleHeaderTingName();
                 SetUpKrugerTings();
@@ -322,7 +323,7 @@ $(document).ready(function () {
                 refreshTop5TingersAndRegreshTings()
                 showHideTingsCarousel("visible");
             }
-        }, 15000);
+        }, 15000);*/
     }
 
     function refreshTop5TingersAndRegreshTings() {
@@ -388,7 +389,7 @@ $(document).ready(function () {
             function (data, textStatus, jqXHR) {
                 if (data.d.length > 0) {
                     LODGEJson = data.d;
-                    setTingCounter(LODGEJson.length);
+                    setTingsCounter(LODGEJson.length);
                     populateTingsHtml(LODGEJson);
                     displayTings();
                     initialize();
@@ -413,7 +414,7 @@ $(document).ready(function () {
             function (data, textStatus, jqXHR) {
                 if (data.d.length > 0) {
                     LODGEJson = data.d;
-                    setTingCounter(LODGEJson.length);
+                    setTingsCounter(LODGEJson.length);
                     populateTingsHtml(LODGEJson);
                     displayTings();
                     initialize();
