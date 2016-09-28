@@ -130,56 +130,58 @@ function init_carousel() {
     /*-------------------------------------------------*/
     /* =  portfolio OWL Carousel
 	/*-------------------------------------------------*/
-    try {
-        $('.bxslider').bxSlider({
-            mode: 'vertical',
-            speed: 600,
-            slideMargin: 0,
-            auto: true,
-            minSlides: 4,
-            maxSlides: 4,
-            moveSlides: 1,
-            pager: false,
-            controls: false,
-            adaptiveHeight: false,
-            onSlideAfter: function ($slideElement, oldIndex, newIndex) {
-                //console.log($slideElement);
-                //console.log(oldIndex);
-                //console.log(newIndex);
-                $($slideElement[0]).addClass("active");
+    var currentActiveItem;
+    var lastActiveItemBeforeSliderDestroy;
+    reload = false;
 
-                if (oldIndex == indexOfLastTing) {
-                    //console.log($slideElement.prevObject[indexOfLastTing]);
-                    $($slideElement.prevObject[indexOfLastTing]).removeClass("active");
-                    // slider has to be destroyed on the last item 
-                    // wait a couple of seconds 
+    var slider = $('.bxslider').bxSlider({
+        mode: 'vertical',
+        speed: 12000,
+        slideMargin: 0,
+        minSlides: 3,
+        maxSlides: 3,
+        auto: true,
+        moveSlides: 1,
+        pager: false,
+        controls: false,
+        adaptiveHeight: false,
+        onSlideAfter: function ($slideElement, oldIndex, newIndex) {
+            // new code
+            ($($slideElement.prevObject)[0])
+            $($slideElement[0]).addClass("active");
+            $($slideElement[0]).prev().removeClass("active");
+            lastActiveItemBeforeSliderDestroy = $slideElement[0];
+            // end of new code
 
-                } else {
-                    $($slideElement[0]).prev().removeClass("active");
-                }
+            console.log($slideElement.prevObject.length);
+            if (newIndex == ($slideElement.prevObject.length - 1)) {
+                slider.destroySlider();
+                //$('.bxslider').html("");
+                AppendItemsOnToSlider();
+                console.log("reloading slider");
+                reload = true;
+                slider.reloadSlider();
 
-                //console.log($($slideElement).prev());
-
-                // get active item 
-                //var currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
-                //// remove active class on last item
-                //$($(currentActiveItem)[1]).removeClass("active");
-                //// get next soon to be active Item
-                //var nextSoonBeActiveItem = $($(".bxslider .active")[0]).next();
-                //$($(currentActiveItem)[0]).removeClass("active");
-                //$(nextSoonBeActiveItem).addClass("active");          
-            },
-            onSliderLoad: function () {
-                // get active item 
-                var currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
-                // remove active class on last item
-                $($(currentActiveItem)[1]).removeClass("active");
-                console.log("SLIDER READY !!!!!!!!!!");
             }
-        });
-    } catch (err) {
+        },
+        // new code
+        onSliderLoad: function () {
+            // get active item 
+            // remove active class on last item
+            if (reload == false) {
+                currentActiveItem = $(".bxslider .active"); // for some reason it returns two: beginning and end item
+                console.log("SETTING CURRENT ACTIVE ITEM");
+                $($(currentActiveItem)[1]).removeClass("active");
+            } else {
+                $($(currentActiveItem)[0]).addClass("active");
+                console.log("LAST SLIDE ITEM");
+                $(lastActiveItemBeforeSliderDestroy).removeClass("active");
 
-    }
+            }
+            console.log("SLIDER READY !!!!!!!!!!");
+        }
+        // end of new code
+    });
 }
 
 function destroy_carousel() {
@@ -262,8 +264,8 @@ $(document).ready(function () {
     displayTings();
     initialize();
     setTingsCounter(LODGEJson.length);
-    //populateTingsHtml(LODGEJson);
-    //init_carousel();
+    populateTingsHtml(LODGEJson);
+    init_carousel();
 
     function displayTings() {
         displayLodge(LODGEJson[counter]);
