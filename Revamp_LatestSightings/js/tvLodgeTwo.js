@@ -130,6 +130,8 @@ function init_carousel() {
     /*-------------------------------------------------*/
     /* =  portfolio OWL Carousel
 	/*-------------------------------------------------*/
+    console.log("OUTPUTING CONTENT OF BX SLIDER BEFORE SLIDER INITIALISATION");
+    console.log($(".bxslider").html());
     var currentActiveItem;
     var lastActiveItemBeforeSliderDestroy;
     reload = false;
@@ -138,8 +140,8 @@ function init_carousel() {
         mode: 'vertical',
         speed: 12000,
         slideMargin: 0,
-        minSlides: 3,
-        maxSlides: 3,
+        minSlides: 6,
+        maxSlides: 6,
         auto: true,
         moveSlides: 1,
         pager: false,
@@ -147,25 +149,29 @@ function init_carousel() {
         adaptiveHeight: false,
         onSlideAfter: function ($slideElement, oldIndex, newIndex) {
             // new code
-            ($($slideElement.prevObject)[0])
+            //($($slideElement.prevObject)[0])
             $($slideElement[0]).addClass("active");
             $($slideElement[0]).prev().removeClass("active");
             lastActiveItemBeforeSliderDestroy = $slideElement[0];
             // end of new code
 
-            console.log($slideElement.prevObject.length);
+            //console.log($slideElement.prevObject.length);
             if (newIndex == ($slideElement.prevObject.length - 1)) {
-                slider.destroySlider();
-                //$('.bxslider').html("");
-                AppendItemsOnToSlider();
-                console.log("reloading slider");
-                reload = true;
-                slider.reloadSlider();
+                setTimeout(function () {
+                    slider.destroySlider();
+                    AppendItemsOnToSlider();
+                    console.log("reloading slider");
+                    reload = true;
+                    slider.reloadSlider();
+                }, 9000)
 
             }
         },
         // new code
         onSliderLoad: function () {
+            setUpMapsOverLaysAndDisplayAt12MIntervals();
+            initialize();
+            setTingsCounter(LODGEJson.length);
             // get active item 
             // remove active class on last item
             if (reload == false) {
@@ -178,10 +184,32 @@ function init_carousel() {
                 $(lastActiveItemBeforeSliderDestroy).removeClass("active");
 
             }
-            console.log("SLIDER READY !!!!!!!!!!");
         }
         // end of new code
     });
+
+    function AppendItemsOnToSlider() {
+        console.log("appending Items To slider");
+        $('.bxslider').append('<li> ' +
+                              '<div class="pic"> ' +
+                                  '<img src="images/thumb3.jpg"/> ' +
+                              '</div> ' +
+                              '<div class="info"> ' +
+                                  '<h3>Family of zebras</h3> ' +
+                                  '<h5 class="datetime">Today @ 15:44 am</h5> ' +
+                              '</div> ' +
+                          '</li> ' +
+                          '<li> ' +
+                              '<div class="pic"> ' +
+                                  '<img src="images/thumb4.jpg"/> ' +
+                              '</div> ' +
+                              '<div class="info"> ' +
+                                  '<h3>Rare rhino</h3> ' +
+                                  '<h5 class="datetime">Today @ 16:39 am</h5> ' +
+                              '</div> ' +
+                          '</li> ' +
+                      '</ul>');
+    }
 }
 
 function destroy_carousel() {
@@ -261,13 +289,10 @@ $(document).ready(function () {
 
     rememberLodgeName();
     setIndexOfLastTing();
-    displayTings();
-    initialize();
-    setTingsCounter(LODGEJson.length);
     populateTingsHtml(LODGEJson);
     init_carousel();
 
-    function displayTings() {
+    function setUpMapsOverLaysAndDisplayAt12MIntervals() {
         displayLodge(LODGEJson[counter]);
         myVar = setInterval(function () { displayNewLodge() }, 12000);
     }
@@ -393,7 +418,7 @@ $(document).ready(function () {
                     LODGEJson = data.d;
                     setTingsCounter(LODGEJson.length);
                     populateTingsHtml(LODGEJson);
-                    displayTings();
+                    setUpMapsOverLaysAndDisplayAt12MIntervals();
                     initialize();
                 }
             }
@@ -418,7 +443,7 @@ $(document).ready(function () {
                     LODGEJson = data.d;
                     setTingsCounter(LODGEJson.length);
                     populateTingsHtml(LODGEJson);
-                    displayTings();
+                    setUpMapsOverLaysAndDisplayAt12MIntervals();
                     initialize();
                 }
             }

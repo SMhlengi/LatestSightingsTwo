@@ -454,7 +454,7 @@ namespace Revamp_LatestSightings
 
             //stringDate = String.Format("{0}", Convert.ToString(dt.Year) + "-" + Convert.ToString(dt.Month) + "-" + Convert.ToString(dt.Day));
             List<Dictionary<string, string>> parkTings = new List<Dictionary<string, string>>();
-            parkTings = library.GetParkTingsByDate(parkid);
+            parkTings = library.GetLatest24HoursParkTings(parkid);
 
             //while (lodgeTings.Count == 0)
             //{

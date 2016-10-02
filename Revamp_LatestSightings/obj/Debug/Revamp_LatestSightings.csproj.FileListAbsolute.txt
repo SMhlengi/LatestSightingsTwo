@@ -22,4 +22,3 @@ C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings
 C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\bin\LatestSightingsLibrary.pdb
 C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\obj\Debug\Revamp_LatestSightings.dll
 C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\obj\Debug\Revamp_LatestSightings.pdb
-C:\Users\musa.mhlengi\Documents\GitHub\LatestSightingsTwo\Revamp_LatestSightings\obj\Debug\Revamp_LatestSightings.csprojResolveAssemblyReference.cache
