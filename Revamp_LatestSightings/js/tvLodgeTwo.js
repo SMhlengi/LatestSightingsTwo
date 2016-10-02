@@ -130,18 +130,16 @@ function init_carousel() {
     /*-------------------------------------------------*/
     /* =  portfolio OWL Carousel
 	/*-------------------------------------------------*/
-    console.log("OUTPUTING CONTENT OF BX SLIDER BEFORE SLIDER INITIALISATION");
-    console.log($(".bxslider").html());
     var currentActiveItem;
     var lastActiveItemBeforeSliderDestroy;
     reload = false;
 
     var slider = $('.bxslider').bxSlider({
         mode: 'vertical',
-        speed: 12000,
+        speed: 10000,
         slideMargin: 0,
-        minSlides: 6,
-        maxSlides: 6,
+        minSlides: 4,
+        maxSlides: 4,
         auto: true,
         moveSlides: 1,
         pager: false,
@@ -218,8 +216,6 @@ function destroy_carousel() {
 }
 
 function populateTingsHtml(tings) {
-    console.log("---populateTingsHtml---");
-    console.log(tings);
     var tingTemplate = '<li class="#activeStatus#">' +
                             '<div class="pic">' +
                                 '<img src="#tingimage#"/>' +
@@ -277,6 +273,280 @@ function moveArrow(percentage) {
     }
 }
 
+function setUpMapsOverLaysAndDisplayAt12MIntervals() {
+    setUpMapsOverlay(LODGEJson[counter]);
+    myVar = setInterval(function () { setupNewMapsOverlay() }, 12000);
+}
+
+function setupNewMapsOverlay() {
+    if (counter != (LODGEJson.length - 1)) {
+        counter += 1;
+        //if (counter == LODGEJson.length - 3) {
+        //    moveArrow("30%");
+        //} else if (counter == LODGEJson.length - 2) {
+        //    moveArrow("36%");
+        //} else if (counter == LODGEJson.length - 1) {
+        //    moveArrow("10%");
+        //}
+        setUpMapsOverlay(LODGEJson[counter]);
+    } else {
+        myStopFunction();
+        moveArrow("reset");
+    }
+}
+
+function UpdateKrugerFlag() {
+    if (showKrugerTings == false) {
+        showKrugerTings = true;
+    } else {
+        showKrugerTings = false;
+    }
+}
+
+function showHideTingsCarousel(status) {
+    if (status == "hidden") {
+        $(".bx-wrapper").css("visibility", status);
+    } else {
+        $(".bx-wrapper").css("visibility", status);
+    }
+}
+
+function myStopFunction() {
+    counter = 0;
+    clearInterval(myVar);
+    clearInterval(mapsTimeoutVariable);
+    console.log("STOPPED!!!!!");
+    //setUpDisplayAllMarkersInOneMap();
+    //UpdateKrugerFlag();
+    //showHideTingsCarousel("hidden");
+
+    /*t = setTimeout(function () {
+        if (showKrugerTings == true) {
+            SetKrugerTitleHeaderTingName();
+            SetUpKrugerTings();
+            showHideTingsCarousel("visible");
+        } else {
+            SetLodgeTittleHeaderTingName();
+            deleteMarkers();
+            refreshTop5TingersAndRegreshTings()
+            showHideTingsCarousel("visible");
+        }
+    }, 15000);*/
+}
+
+function refreshTop5TingersAndRegreshTings() {
+    clearTingSlider();
+    RefreshTop5Tingers();
+    RefreshTings();
+}
+
+function clearTingSlider() {
+    for (var i = 0; i < tingsCounter; i++) {
+        $("#owl-slider").data('owlCarousel').removeItem();
+    }
+}
+
+function SetUpKrugerTings() {
+    deleteMarkers();
+    clearTingSlider();
+    GetKrugerTings();
+}
+
+function RefreshTop5Tingers() {
+    var postUrl = "/AjaxOperation.aspx/GetLodgeTopFiveTingers";
+    $.ajax({
+        type: "POST",
+        url: postUrl,
+        data: "{'lodgeId' : '" + lodgeId + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    }).done(
+        function (data, textStatus, jqXHR) {
+            if (data.d.length > 0) {
+                UpdateTop5TingersLodge(data.d);
+            }
+        }
+    ).fail(
+        function (data, textStatus, jqXHR) {
+        }
+    );
+}
+
+
+function UpdateTop5TingersLodge(tingers) {
+    $("#top5tingers tr").remove();
+    var headers = "<tr><td>Username</td><td>Today's Tingers</td></tr>";
+    $("#top5tingers").prepend(headers);
+    for (var i = 0; i < tingers.length; i++) {
+        var newrow = "<tr><td>#name</td><td>#total</td></tr>";
+        newrow = newrow.replace("#name", tingers[i].username).replace("#total", tingers[i].tingsTotal);
+        $("#top5tingers tr:last").after(newrow);
+    }
+}
+
+function RefreshTings() {
+    console.log("Getting normal tings");
+    var postUrl = "/AjaxOperation.aspx/GetLodgeDetails";
+    $.ajax({
+        type: "POST",
+        url: postUrl,
+        data: "{'lodgeName' : '" + lodgeName + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    }).done(
+        function (data, textStatus, jqXHR) {
+            if (data.d.length > 0) {
+                LODGEJson = data.d;
+                setTingsCounter(LODGEJson.length);
+                populateTingsHtml(LODGEJson);
+                setUpMapsOverLaysAndDisplayAt12MIntervals();
+                initialize();
+            }
+        }
+    ).fail(
+        function (data, textStatus, jqXHR) {
+        }
+    );
+}
+
+
+function GetKrugerTings() {
+    console.log("Getting Kruger Tings");
+    var postUrl = "/AjaxOperation.aspx/GetKrugerTings";
+    $.ajax({
+        type: "POST",
+        url: postUrl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    }).done(
+        function (data, textStatus, jqXHR) {
+            if (data.d.length > 0) {
+                LODGEJson = data.d;
+                setTingsCounter(LODGEJson.length);
+                populateTingsHtml(LODGEJson);
+                setUpMapsOverLaysAndDisplayAt12MIntervals();
+                initialize();
+            }
+        }
+    ).fail(
+        function (data, textStatus, jqXHR) {
+        }
+    );
+}
+
+function setUpMapsOverlay(lodgeDetails) {
+    //showTingInformation();
+    LODGE_lat = lodgeDetails.latitude;
+    LODGE_long = lodgeDetails.longitude;
+
+    TingOverlay = '<div class="card"> ' +
+        '<img src="#TingImage#"> ' +
+        '<div class="info-wrap"> ' +
+            '<div class="profile">' +
+                '<img src="images/profilepic.jpg"> ' +
+                '<div class="profile-txt"> ' +
+                    '<p>#tingedBy#</p>' +
+                    '<h3>#TingTitle#</h3>' +
+                '</div>' +
+            '</div>' +
+            '<div class="location">' +
+                '<p>#location#</p>' +
+            '</div>' +
+            '<div class="detail">' +
+                '<div class="visibility"> ' +
+                    '<div class="stars">' +
+                        '#visibility_stars#' +
+                    '</div>' +
+                    '<h5>Visibility</h5>' +
+                '</div>' +
+                '<div class="traffic">' +
+                    '<div>' +
+                        '#visibility_traffic#' +
+                    '</div>' +
+                    '<h5>Traffic</h5>' +
+                '</div>' +
+            '</div>' +
+            '<div class="des">' +
+                '<p>#tingdesc# </p>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+
+    var TingImage = tingImageFolderUrl + lodgeDetails.id;
+    var tingedBy = "Tinged by: " + lodgeDetails.username;
+    var TingTitle = lodgeDetails.title;
+    var Tingdesc = lodgeDetails.description;
+    var Tinglocation = lodgeDetails.location;
+    var VisibilityStar = ReturnVisibilityStar(parseInt(lodgeDetails.visibility));
+    var VisibilityTraffic = ReturnTraffic(parseInt(lodgeDetails.traffic));
+
+    TingOverlay = TingOverlay.replace("#TingImage#", TingImage).replace("#tingedBy#", tingedBy).replace("#TingTitle#", TingTitle).replace("#location#", Tinglocation).replace("#visibility_stars#", VisibilityStar).replace("#visibility_traffic#", VisibilityTraffic).replace("#tingdesc#", Tingdesc);
+
+    //$("#lodgeImage").attr("src", tingImageFolderUrl + lodgeDetails.id);
+    // http://tingsservice.socialengine.co.za/uploads/1577F3D3-B3AB-4FA7-A46A-22D20E65EE03.jpg
+    //$("#lodgeTitle").html(lodgeDetails.title);
+    //$("#desc").html(lodgeDetails.description);
+    //$("#location").html(lodgeDetails.location);
+    //$("#tingedBy").html("Tinged by: " + lodgeDetails.username);
+    //$("#time").html(lodgeDetails.time);
+    //$("#visibility_traffic").html("Visibility: " + lodgeDetails.visibility + " | Traffic: " + lodgeDetails.traffic);
+    //$("#visibility_traffic").html("Visibility: " + ReturnVisibilityStar(parseInt(lodgeDetails.visibility)) + " | Traffic: " + ReturnTraffic(parseInt(lodgeDetails.traffic)));
+}
+
+function ReturnVisibilityStar(starsCount) {
+
+    var htmlStars = "";
+
+    for (var i = 0; i < starsCount; i++) {
+        htmlStars += '<i class="fa fa-star"></i>';
+    }
+
+    for (var i = starsCount; i < 5; i++) {
+        htmlStars += '<i class="fa fa-star-o"></i>';
+    }
+
+    return htmlStars;
+}
+
+function ReturnTraffic(starsCount) {
+    var htmlStars = "";
+
+
+    for (var i = 0; i < starsCount; i++) {
+        htmlStars += '<i class="fa fa-circle"></i>';
+    }
+
+    for (var i = starsCount; i < 5; i++) {
+        htmlStars += '<i class="fa fa-circle-thin"></i>';
+    }
+
+    return htmlStars;
+}
+
+function setUpDisplayAllMarkersInOneMap() {
+    setNewMapOfSouthAfrica();
+    displayAllTingsPicture();
+    hideTingInformation();
+    tout = setTimeout(function () {
+        showMarkers();
+    }, 1500);
+}
+
+
+function displayAllTingsPicture() {
+    $("#lodgeImage").attr("src", "http://latestsightings.socialengine.co.za/images/alltings.PNG");
+}
+
+function hideTingInformation() {
+    $("#lodgeTitle").hide();
+    $(".NoBottomMargin").hide();
+}
+
+function showTingInformation() {
+    //$("#lodgeTitle").show();
+    //$(".NoBottomMargin").show();
+}
+
 
 function setIndexOfLastTing() {
     indexOfLastTing = LODGEJson.length - 1;
@@ -291,280 +561,4 @@ $(document).ready(function () {
     setIndexOfLastTing();
     populateTingsHtml(LODGEJson);
     init_carousel();
-
-    function setUpMapsOverLaysAndDisplayAt12MIntervals() {
-        displayLodge(LODGEJson[counter]);
-        myVar = setInterval(function () { displayNewLodge() }, 12000);
-    }
-
-    function displayNewLodge() {
-        if (counter != (LODGEJson.length - 1)) {
-            counter += 1;
-            //if (counter == LODGEJson.length - 3) {
-            //    moveArrow("30%");
-            //} else if (counter == LODGEJson.length - 2) {
-            //    moveArrow("36%");
-            //} else if (counter == LODGEJson.length - 1) {
-            //    moveArrow("10%");
-            //}
-            displayLodge(LODGEJson[counter]);
-        } else {
-            myStopFunction();
-            moveArrow("reset");
-        }
-    }
-
-    function UpdateKrugerFlag() {
-        if (showKrugerTings == false) {
-            showKrugerTings = true;
-        } else {
-            showKrugerTings = false;
-        }
-    }
-
-    function showHideTingsCarousel(status) {
-        if (status == "hidden") {
-            $(".bx-wrapper").css("visibility", status);
-        } else {
-            $(".bx-wrapper").css("visibility", status);
-        }
-    }
-
-    function myStopFunction() {
-        counter = 0;
-        clearInterval(myVar);
-        clearInterval(mapsTimeoutVariable);
-        console.log("STOPPED!!!!!");
-        //setUpDisplayAllMarkersInOneMap();
-        //UpdateKrugerFlag();
-        //showHideTingsCarousel("hidden");
-
-        /*t = setTimeout(function () {
-            if (showKrugerTings == true) {
-                SetKrugerTitleHeaderTingName();
-                SetUpKrugerTings();
-                showHideTingsCarousel("visible");
-            } else {
-                SetLodgeTittleHeaderTingName();
-                deleteMarkers();
-                refreshTop5TingersAndRegreshTings()
-                showHideTingsCarousel("visible");
-            }
-        }, 15000);*/
-    }
-
-    function refreshTop5TingersAndRegreshTings() {
-        clearTingSlider();
-        RefreshTop5Tingers();
-        RefreshTings();
-    }
-
-    function clearTingSlider() {
-        for (var i = 0; i < tingsCounter; i++) {
-            $("#owl-slider").data('owlCarousel').removeItem();
-        }
-    }
-
-    function SetUpKrugerTings() {
-        deleteMarkers();
-        clearTingSlider();
-        GetKrugerTings();
-    }
-
-    function RefreshTop5Tingers() {
-        var postUrl = "/AjaxOperation.aspx/GetLodgeTopFiveTingers";
-        $.ajax({
-            type: "POST",
-            url: postUrl,
-            data: "{'lodgeId' : '" + lodgeId + "'}",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json"
-        }).done(
-            function (data, textStatus, jqXHR) {
-                if (data.d.length > 0) {
-                    UpdateTop5TingersLodge(data.d);
-                }
-            }
-        ).fail(
-            function (data, textStatus, jqXHR) {
-            }
-        );
-    }
-
-
-    function UpdateTop5TingersLodge(tingers) {
-        $("#top5tingers tr").remove();
-        var headers = "<tr><td>Username</td><td>Today's Tingers</td></tr>";
-        $("#top5tingers").prepend(headers);
-        for (var i = 0; i < tingers.length; i++) {
-            var newrow = "<tr><td>#name</td><td>#total</td></tr>";
-            newrow = newrow.replace("#name", tingers[i].username).replace("#total", tingers[i].tingsTotal);
-            $("#top5tingers tr:last").after(newrow);
-        }
-    }
-
-    function RefreshTings() {
-        console.log("Getting normal tings");
-        var postUrl = "/AjaxOperation.aspx/GetLodgeDetails";
-        $.ajax({
-            type: "POST",
-            url: postUrl,
-            data: "{'lodgeName' : '" + lodgeName + "'}",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json"
-        }).done(
-            function (data, textStatus, jqXHR) {
-                if (data.d.length > 0) {
-                    LODGEJson = data.d;
-                    setTingsCounter(LODGEJson.length);
-                    populateTingsHtml(LODGEJson);
-                    setUpMapsOverLaysAndDisplayAt12MIntervals();
-                    initialize();
-                }
-            }
-        ).fail(
-            function (data, textStatus, jqXHR) {
-            }
-        );
-    }
-
-
-    function GetKrugerTings() {
-        console.log("Getting Kruger Tings");
-        var postUrl = "/AjaxOperation.aspx/GetKrugerTings";
-        $.ajax({
-            type: "POST",
-            url: postUrl,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json"
-        }).done(
-            function (data, textStatus, jqXHR) {
-                if (data.d.length > 0) {
-                    LODGEJson = data.d;
-                    setTingsCounter(LODGEJson.length);
-                    populateTingsHtml(LODGEJson);
-                    setUpMapsOverLaysAndDisplayAt12MIntervals();
-                    initialize();
-                }
-            }
-        ).fail(
-            function (data, textStatus, jqXHR) {
-            }
-        );
-    }
-
-    function displayLodge(lodgeDetails) {
-        //showTingInformation();
-        LODGE_lat = lodgeDetails.latitude;
-        LODGE_long = lodgeDetails.longitude;
-
-        TingOverlay = '<div class="card"> ' +
-            '<img src="#TingImage#"> ' +
-            '<div class="info-wrap"> ' +
-                '<div class="profile">' +
-                    '<img src="images/profilepic.jpg"> ' +
-                    '<div class="profile-txt"> ' +
-                        '<p>#tingedBy#</p>' +
-                        '<h3>#TingTitle#</h3>' +
-                    '</div>' +
-                '</div>' +
-                '<div class="location">' +
-                    '<p>#location#</p>' +
-                '</div>' +
-                '<div class="detail">' +
-                    '<div class="visibility"> ' +
-                        '<div class="stars">' +
-                            '#visibility_stars#' +
-                        '</div>' +
-                        '<h5>Visibility</h5>' +
-                    '</div>' +
-                    '<div class="traffic">' +
-                        '<div>' +
-                            '#visibility_traffic#' +
-                        '</div>' +
-                        '<h5>Traffic</h5>' +
-                    '</div>' +
-                '</div>' +
-                '<div class="des">' +
-                    '<p>#tingdesc# </p>' +
-                '</div>' +
-            '</div>' +
-        '</div>';
-
-        var TingImage = tingImageFolderUrl + lodgeDetails.id;
-        var tingedBy = "Tinged by: " + lodgeDetails.username;
-        var TingTitle = lodgeDetails.title;
-        var Tingdesc = lodgeDetails.description;
-        var Tinglocation = lodgeDetails.location;
-        var VisibilityStar = ReturnVisibilityStar(parseInt(lodgeDetails.visibility));
-        var VisibilityTraffic = ReturnTraffic(parseInt(lodgeDetails.traffic));
-
-        TingOverlay = TingOverlay.replace("#TingImage#", TingImage).replace("#tingedBy#", tingedBy).replace("#TingTitle#", TingTitle).replace("#location#", Tinglocation).replace("#visibility_stars#", VisibilityStar).replace("#visibility_traffic#", VisibilityTraffic).replace("#tingdesc#", Tingdesc);
-
-        //$("#lodgeImage").attr("src", tingImageFolderUrl + lodgeDetails.id);
-        // http://tingsservice.socialengine.co.za/uploads/1577F3D3-B3AB-4FA7-A46A-22D20E65EE03.jpg
-        //$("#lodgeTitle").html(lodgeDetails.title);
-        //$("#desc").html(lodgeDetails.description);
-        //$("#location").html(lodgeDetails.location);
-        //$("#tingedBy").html("Tinged by: " + lodgeDetails.username);
-        //$("#time").html(lodgeDetails.time);
-        //$("#visibility_traffic").html("Visibility: " + lodgeDetails.visibility + " | Traffic: " + lodgeDetails.traffic);
-        //$("#visibility_traffic").html("Visibility: " + ReturnVisibilityStar(parseInt(lodgeDetails.visibility)) + " | Traffic: " + ReturnTraffic(parseInt(lodgeDetails.traffic)));
-    }
-
-    function ReturnVisibilityStar(starsCount) {
-
-        var htmlStars = "";
-
-        for (var i = 0; i < starsCount; i++) {
-            htmlStars += '<i class="fa fa-star"></i>';
-        }
-
-        for (var i = starsCount; i < 5; i++) {
-            htmlStars += '<i class="fa fa-star-o"></i>';
-        }
-
-        return htmlStars;
-    }
-
-    function ReturnTraffic(starsCount) {
-        var htmlStars = "";
-
-
-        for (var i = 0; i < starsCount; i++) {
-            htmlStars += '<i class="fa fa-circle"></i>';
-        }
-
-        for (var i = starsCount; i < 5; i++) {
-            htmlStars += '<i class="fa fa-circle-thin"></i>';
-        }
-
-        return htmlStars;
-    }
-
-    function setUpDisplayAllMarkersInOneMap() {
-        setNewMapOfSouthAfrica();
-        displayAllTingsPicture();
-        hideTingInformation();
-        tout = setTimeout(function () {
-            showMarkers();
-        }, 1500);
-    }
-
-
-    function displayAllTingsPicture() {
-        $("#lodgeImage").attr("src", "http://latestsightings.socialengine.co.za/images/alltings.PNG");
-    }
-
-    function hideTingInformation() {
-        $("#lodgeTitle").hide();
-        $(".NoBottomMargin").hide();
-    }
-
-    function showTingInformation() {
-        //$("#lodgeTitle").show();
-        //$(".NoBottomMargin").show();
-    }
-
-
 });
