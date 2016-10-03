@@ -320,6 +320,7 @@
     <Content Include="js\SightingTingInfo.js" />
     <Content Include="js\sweetalert.min.js" />
     <Content Include="js\swiper.js" />
+    <Content Include="js\tvLodgeThree.js" />
     <Content Include="js\tvLodgeTwo.js" />
     <Content Include="js\tvLodge_Tings.js" />
     <Content Include="js\Upload.js" />
@@ -346,6 +347,7 @@
     <Content Include="ting.aspx" />
     <Content Include="tings2.aspx" />
     <Content Include="tvlodge.aspx" />
+    <Content Include="tvlodgeThree.aspx" />
     <Content Include="tvlodgeTwo.aspx" />
     <Content Include="uc_addcontent.ascx" />
     <Content Include="uc_AddImage.ascx" />
@@ -670,6 +672,13 @@
     </Compile>
     <Compile Include="tvlodge.aspx.designer.cs">
       <DependentUpon>tvlodge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tvlodgeThree.aspx.cs">
+      <DependentUpon>tvlodgeThree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tvlodgeThree.aspx.designer.cs">
+      <DependentUpon>tvlodgeThree.aspx</DependentUpon>
     </Compile>
     <Compile Include="tvlodgeTwo.aspx.cs">
       <DependentUpon>tvlodgeTwo.aspx</DependentUpon>
