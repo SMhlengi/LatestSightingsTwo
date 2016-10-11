@@ -587,5 +587,15 @@ namespace Revamp_LatestSightings
             }
             return recordUpdated;
         }
+
+        [WebMethod]
+        public static List<Dictionary<string,string>> GetLatest24HoursParkTings(string parkid, string mostRecentTingDate)
+        {
+            Guid park = new Guid(parkid);
+            DateTime tingDate = Convert.ToDateTime(mostRecentTingDate);
+            List<Dictionary<string, string>> tings = new List<Dictionary<string, string>>();
+            tings = library.GetLatest24HoursParkTings(park, tingDate);
+            return tings;
+        }
     }
 }

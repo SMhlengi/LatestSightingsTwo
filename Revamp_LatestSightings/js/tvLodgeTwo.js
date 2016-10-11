@@ -42,6 +42,7 @@ var showKrugerTings = false;
 var friendlyLodgeName = "";
 var tingsCounter = "";
 var TingOverlay = "";
+var latestTingDate = "";
 
 function setLodgeTingers(json, FolderUrl, name, id) {
     LODGEJson = json;
@@ -126,6 +127,35 @@ function initialize() {
 
 }
 
+function GetLatesingTings() {
+    var postUrl = "/AjaxOperation.aspx/DoesScreenNameExist";
+    $.ajax({
+        type: "POST",
+        url: postUrl,
+        data: "{'screenName' : '" + screenName + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    }).done(
+        function (data, textStatus, jqXHR) {
+            if (data.d == true) {
+                $("div .screenName").prev().addClass("has-error");
+                $("div .screenName").html("<p class='text-danger'>Screen Name already exists</p>");
+                $("div .screenName").show();
+            } else {
+                $(".registerSpinner").show();
+                $("#firstname").attr("disabled", "disabled");
+                $("#lastname").attr("disabled", "disabled");
+                $("#email").attr("disabled", "disabled");
+                $("#password").attr("disabled", "disabled");
+                SaveRegistration($("#firstname").val(), $("#lastname").val(), $("#email").val(), $("#password").val(), $("#screenName").val());
+            }
+        }
+    ).fail(
+        function (data, textStatus, jqXHR) {
+        }
+    );
+}
+
 function init_carousel() {
     /*-------------------------------------------------*/
     /* =  portfolio OWL Carousel
@@ -153,7 +183,8 @@ function init_carousel() {
             lastActiveItemBeforeSliderDestroy = $slideElement[0];
             // end of new code
 
-            //console.log($slideElement.prevObject.length);
+            console.log("TOTAL TINGS!!!!");
+            console.log($slideElement.prevObject.length);
             if (newIndex == ($slideElement.prevObject.length - 1)) {
                 setTimeout(function () {
                     slider.destroySlider();
@@ -163,6 +194,9 @@ function init_carousel() {
                     slider.reloadSlider();
                 }, 9000)
 
+            } else if (newIndex == ($slideElement.prevObject.length - 3)) {
+                // two more items before reaching the end then do the following
+                GetLatesingTings();
             }
         },
         // new code
@@ -228,13 +262,18 @@ function populateTingsHtml(tings) {
     var ting = "";
     for (var i = 0; i < tings.length; i++) {
         if (i == 0) {
-            ting += tingTemplate.replace("#activeStatus#","active").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
+            ting += tingTemplate.replace("#activeStatus#", "active").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
+            SetLatestTingDate(tings[i].unformatedTime)
         } else {
             ting += tingTemplate.replace("#activeStatus#", "").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
         }
         
         $(".bxslider").html(ting);
     }
+}
+
+function SetLatestTingDate(tingDate) {
+    latestTingDate = tingDate;
 }
 
 function setTingsCounter(number) {
