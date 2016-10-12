@@ -589,10 +589,10 @@ namespace Revamp_LatestSightings
         }
 
         [WebMethod]
-        public static List<Dictionary<string,string>> GetLatest24HoursParkTings(string parkid, string mostRecentTingDate)
+        public static List<Dictionary<string, string>> GetLatest24HoursParkTings(string parkGuid, string dateOfMostRecentTing)
         {
-            Guid park = new Guid(parkid);
-            DateTime tingDate = Convert.ToDateTime(mostRecentTingDate);
+            Guid park = new Guid(parkGuid);
+            DateTime tingDate = Convert.ToDateTime(dateOfMostRecentTing);
             List<Dictionary<string, string>> tings = new List<Dictionary<string, string>>();
             tings = library.GetLatest24HoursParkTings(park, tingDate);
             return tings;

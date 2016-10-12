@@ -43,6 +43,8 @@ var friendlyLodgeName = "";
 var tingsCounter = "";
 var TingOverlay = "";
 var latestTingDate = "";
+var parkGuid = "";
+var LATESTingsJSON = [];
 
 function setLodgeTingers(json, FolderUrl, name, id) {
     LODGEJson = json;
@@ -128,26 +130,21 @@ function initialize() {
 }
 
 function GetLatesingTings() {
-    var postUrl = "/AjaxOperation.aspx/DoesScreenNameExist";
+    var postUrl = "/AjaxOperation.aspx/GetLatest24HoursParkTings";
     $.ajax({
         type: "POST",
         url: postUrl,
-        data: "{'screenName' : '" + screenName + "'}",
+        data: "{'parkGuid' : '" + parkGuid + "', 'dateOfMostRecentTing' : '" + latestTingDate + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json"
     }).done(
         function (data, textStatus, jqXHR) {
-            if (data.d == true) {
-                $("div .screenName").prev().addClass("has-error");
-                $("div .screenName").html("<p class='text-danger'>Screen Name already exists</p>");
-                $("div .screenName").show();
+            console.log("NEW PARK TINGS");
+            console.log(data);
+            if (data.d.length > 0) {
+                LATESTingsJSON = data.d;
             } else {
-                $(".registerSpinner").show();
-                $("#firstname").attr("disabled", "disabled");
-                $("#lastname").attr("disabled", "disabled");
-                $("#email").attr("disabled", "disabled");
-                $("#password").attr("disabled", "disabled");
-                SaveRegistration($("#firstname").val(), $("#lastname").val(), $("#email").val(), $("#password").val(), $("#screenName").val());
+                LATESTingsJSON = [];
             }
         }
     ).fail(
@@ -222,25 +219,9 @@ function init_carousel() {
 
     function AppendItemsOnToSlider() {
         console.log("appending Items To slider");
-        $('.bxslider').append('<li> ' +
-                              '<div class="pic"> ' +
-                                  '<img src="images/thumb3.jpg"/> ' +
-                              '</div> ' +
-                              '<div class="info"> ' +
-                                  '<h3>Family of zebras</h3> ' +
-                                  '<h5 class="datetime">Today @ 15:44 am</h5> ' +
-                              '</div> ' +
-                          '</li> ' +
-                          '<li> ' +
-                              '<div class="pic"> ' +
-                                  '<img src="images/thumb4.jpg"/> ' +
-                              '</div> ' +
-                              '<div class="info"> ' +
-                                  '<h3>Rare rhino</h3> ' +
-                                  '<h5 class="datetime">Today @ 16:39 am</h5> ' +
-                              '</div> ' +
-                          '</li> ' +
-                      '</ul>');
+        if (LATESTingsJSON.length > 0) {
+            populateTingsHtml(LATESTingsJSON, true);
+        }
     }
 }
 
@@ -249,7 +230,7 @@ function destroy_carousel() {
     $("#owl-slider").data('owlCarousel').destroy();
 }
 
-function populateTingsHtml(tings) {
+function populateTingsHtml(tings, sliderReload) {
     var tingTemplate = '<li class="#activeStatus#">' +
                             '<div class="pic">' +
                                 '<img src="#tingimage#"/>' +
@@ -260,20 +241,30 @@ function populateTingsHtml(tings) {
                             '</div>' +
                         '</li>';
     var ting = "";
-    for (var i = 0; i < tings.length; i++) {
-        if (i == 0) {
-            ting += tingTemplate.replace("#activeStatus#", "active").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
-            SetLatestTingDate(tings[i].unformatedTime)
-        } else {
-            ting += tingTemplate.replace("#activeStatus#", "").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
+
+    if (sliderReload == false) {
+        for (var i = 0; i < tings.length; i++) {
+            if (i == 0) {
+                ting += tingTemplate.replace("#activeStatus#", "active").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
+                SetLatestTingDateAndParkGuid(tings[i].unformatedTime, tings[i].parkId)
+            } else {
+                ting += tingTemplate.replace("#activeStatus#", "").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);
+            }
         }
-        
         $(".bxslider").html(ting);
+
+    } else if (sliderReload == true) {
+        SetLatestTingDateAndParkGuid(tings[0].unformatedTime, tings[0].parkId)
+        for (var i = 0; i < tings.length; i++) {
+            ting += tingTemplate.replace("#activeStatus#", "").replace("#title#", tings[i].title).replace("#time#", tings[i].time).replace("#tingimage#", "http://tingsservice.socialengine.co.za/tings/image/" + tings[i].id);            
+        }
+        $('.bxslider').append(ting);
     }
 }
 
-function SetLatestTingDate(tingDate) {
+function SetLatestTingDateAndParkGuid(tingDate, parkid) {
     latestTingDate = tingDate;
+    parkGuid = parkid;
 }
 
 function setTingsCounter(number) {
@@ -423,56 +414,6 @@ function UpdateTop5TingersLodge(tingers) {
     }
 }
 
-function RefreshTings() {
-    console.log("Getting normal tings");
-    var postUrl = "/AjaxOperation.aspx/GetLodgeDetails";
-    $.ajax({
-        type: "POST",
-        url: postUrl,
-        data: "{'lodgeName' : '" + lodgeName + "'}",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json"
-    }).done(
-        function (data, textStatus, jqXHR) {
-            if (data.d.length > 0) {
-                LODGEJson = data.d;
-                setTingsCounter(LODGEJson.length);
-                populateTingsHtml(LODGEJson);
-                setUpMapsOverLaysAndDisplayAt12MIntervals();
-                initialize();
-            }
-        }
-    ).fail(
-        function (data, textStatus, jqXHR) {
-        }
-    );
-}
-
-
-function GetKrugerTings() {
-    console.log("Getting Kruger Tings");
-    var postUrl = "/AjaxOperation.aspx/GetKrugerTings";
-    $.ajax({
-        type: "POST",
-        url: postUrl,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json"
-    }).done(
-        function (data, textStatus, jqXHR) {
-            if (data.d.length > 0) {
-                LODGEJson = data.d;
-                setTingsCounter(LODGEJson.length);
-                populateTingsHtml(LODGEJson);
-                setUpMapsOverLaysAndDisplayAt12MIntervals();
-                initialize();
-            }
-        }
-    ).fail(
-        function (data, textStatus, jqXHR) {
-        }
-    );
-}
-
 function setUpMapsOverlay(lodgeDetails) {
     //showTingInformation();
     LODGE_lat = lodgeDetails.latitude;
@@ -598,6 +539,6 @@ $(document).ready(function () {
 
     rememberLodgeName();
     setIndexOfLastTing();
-    populateTingsHtml(LODGEJson);
+    populateTingsHtml(LODGEJson, false);
     init_carousel();
 });
