@@ -35,7 +35,7 @@ var lodgeId = "";
 var counter = 0;
 var LODGE_lat = "";
 var LODGE_long = "";
-var markers = [];
+//var markers = [];
 var map;
 var infowindow;
 var showKrugerTings = false;
@@ -107,7 +107,7 @@ function initialize() {
         animation: google.maps.Animation.DROP,
         map: map
     });
-    markers.push(marker);
+    //markers.push(marker);
     setTimeout(function () { infowindow.open(map, marker); }, 1000);
 
 
@@ -122,7 +122,7 @@ function initialize() {
             map: map,
             animation: google.maps.Animation.DROP,
         });
-        markers.push(marker);
+        //markers.push(marker);
         infowindow.setContent(TingOverlay);        
         setTimeout(function () { infowindow.open(map, marker); }, 1000);
     }
@@ -143,6 +143,7 @@ function GetLatesingTings() {
             console.log(data);
             if (data.d.length > 0) {
                 LATESTingsJSON = data.d;
+                UpdateLODGEJson(data.d);
             } else {
                 LATESTingsJSON = [];
             }
@@ -151,6 +152,14 @@ function GetLatesingTings() {
         function (data, textStatus, jqXHR) {
         }
     );
+}
+
+
+function UpdateLODGEJson(latestTings) {
+
+    for (var i = 0; i < latestTings.length; i++) {
+        LODGEJson.push(latestTings[i]);
+    }
 }
 
 function init_carousel() {
@@ -180,8 +189,9 @@ function init_carousel() {
             lastActiveItemBeforeSliderDestroy = $slideElement[0];
             // end of new code
 
-            console.log("TOTAL TINGS!!!!");
-            console.log($slideElement.prevObject.length);
+            //console.log("TOTAL TINGS!!!!");
+            //console.log($slideElement.prevObject.length);
+
             if (newIndex == ($slideElement.prevObject.length - 1)) {
                 setTimeout(function () {
                     slider.destroySlider();
@@ -198,8 +208,8 @@ function init_carousel() {
         },
         // new code
         onSliderLoad: function () {
-            setUpMapsOverLaysAndDisplayAt12MIntervals();
-            initialize();
+            setUpMapsOverLaysAndDisplayAt12MIntervals(); // every 12 seconds set up new Info window content
+            initialize();                                // every 12 seconds display new map with Info window content
             setTingsCounter(LODGEJson.length);
             // get active item 
             // remove active class on last item
@@ -321,7 +331,6 @@ function setupNewMapsOverlay() {
         setUpMapsOverlay(LODGEJson[counter]);
     } else {
         myStopFunction();
-        moveArrow("reset");
     }
 }
 
