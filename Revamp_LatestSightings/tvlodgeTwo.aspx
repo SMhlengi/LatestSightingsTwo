@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/css/jquery.bxslider.css") %>">
     <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB3O6AqwnZ3uHY0h6ulDrxlAWXXrs99VqI"></script>
     <script src="<%= ResolveUrl("~/js/jquery-2.1.1.min.js") %>"></script>
-    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=39") %>"></script>
+    <script src="<%= ResolveUrl("~/js/tvLodgeTwo.js?v=41") %>"></script>
 
 </head>
 <body>
