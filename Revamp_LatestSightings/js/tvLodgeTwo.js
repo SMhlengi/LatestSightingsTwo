@@ -173,7 +173,7 @@ function init_carousel() {
 
     var slider = $('.bxslider').bxSlider({
         mode: 'vertical',
-        speed: 10000,
+        speed: 9000,
         slideMargin: 0,
         minSlides: 4,
         maxSlides: 4,
