@@ -111,6 +111,7 @@ function initialize() {
     setTimeout(function () { infowindow.open(map, marker); }, 1000);
 
 
+    mapsTimeoutVariable = setInterval(function () { displayNewMap() }, 12100);
 
     function displayNewMap() {
         infowindow.close();
@@ -324,6 +325,7 @@ function moveArrow(percentage) {
 function setUpMapsOverLaysAndDisplayAt12MIntervals() {
     console.log("setUpMapsOverLaysAndDisplayAt12MIntervals");
     setUpMapsOverlay(LODGEJson[counter]);
+    myVar = setInterval(function () { setupNewMapsOverlay() }, 12100);
 }
 
 function setupNewMapsOverlay() {
