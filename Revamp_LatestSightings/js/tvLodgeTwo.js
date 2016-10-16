@@ -111,7 +111,7 @@ function initialize() {
     setTimeout(function () { infowindow.open(map, marker); }, 1000);
 
 
-    mapsTimeoutVariable = setInterval(function () { displayNewMap() }, 12000);
+    mapsTimeoutVariable = setInterval(function () { displayNewMap() }, 11000);
 
     function displayNewMap() {
         infowindow.close();
@@ -166,6 +166,7 @@ function init_carousel() {
     /*-------------------------------------------------*/
     /* =  portfolio OWL Carousel
 	/*-------------------------------------------------*/
+    console.log("INITIALIZING SLIDER !!!!")
     var currentActiveItem;
     var lastActiveItemBeforeSliderDestroy;
     reload = false;
@@ -321,8 +322,9 @@ function moveArrow(percentage) {
 }
 
 function setUpMapsOverLaysAndDisplayAt12MIntervals() {
+    console.log("setUpMapsOverLaysAndDisplayAt12MIntervals");
     setUpMapsOverlay(LODGEJson[counter]);
-    myVar = setInterval(function () { setupNewMapsOverlay() }, 12000);
+    myVar = setInterval(function () { setupNewMapsOverlay() }, 11000);
 }
 
 function setupNewMapsOverlay() {
