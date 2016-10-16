@@ -111,7 +111,7 @@ function initialize() {
     setTimeout(function () { infowindow.open(map, marker); }, 1000);
 
 
-    mapsTimeoutVariable = setInterval(function () { displayNewMap() }, 13000);
+    mapsTimeoutVariable = setInterval(function () { displayNewMap() }, 12500);
 
     function displayNewMap() {
         infowindow.close();
@@ -196,13 +196,14 @@ function init_carousel() {
             if (newIndex == ($slideElement.prevObject.length - 1)) {
 
                 console.log("REACHED THE LAST TINGS !!");
+                myStopFunction();
                 setTimeout(function () {                    
                     slider.destroySlider();
                     AppendItemsOnToSlider();
                     console.log("RELOADING SLIDER");
                     reload = true;
                     slider.reloadSlider();
-                }, 9000)
+                }, 5000)
 
             } else if (newIndex == ($slideElement.prevObject.length - 3)) {
                 console.log("NEARLY AT THE END OF THE TINGS, CHECKING FOR NEW TINGS");
@@ -324,7 +325,7 @@ function moveArrow(percentage) {
 function setUpMapsOverLaysAndDisplayAt12MIntervals() {
     console.log("setUpMapsOverLaysAndDisplayAt12MIntervals");
     setUpMapsOverlay(LODGEJson[counter]);
-    myVar = setInterval(function () { setupNewMapsOverlay() }, 13000);
+    myVar = setInterval(function () { setupNewMapsOverlay() }, 12500);
 }
 
 function setupNewMapsOverlay() {
