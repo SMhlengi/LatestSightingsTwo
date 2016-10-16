@@ -139,9 +139,9 @@ function GetLatesingTings() {
         dataType: "json"
     }).done(
         function (data, textStatus, jqXHR) {
-            console.log("NEW PARK TINGS");
-            console.log(data);
             if (data.d.length > 0) {
+                console.log("NEW TINGS FOUND !!!!");
+                console.log(data);
                 LATESTingsJSON = data.d;
                 UpdateLODGEJson(data.d);
             } else {
@@ -193,16 +193,18 @@ function init_carousel() {
             //console.log($slideElement.prevObject.length);
 
             if (newIndex == ($slideElement.prevObject.length - 1)) {
-                setTimeout(function () {
+
+                console.log("REACHED THE LAST TINGS !!");
+                setTimeout(function () {                    
                     slider.destroySlider();
                     AppendItemsOnToSlider();
-                    console.log("reloading slider");
+                    console.log("RELOADING SLIDER");
                     reload = true;
                     slider.reloadSlider();
                 }, 9000)
 
             } else if (newIndex == ($slideElement.prevObject.length - 3)) {
-                // two more items before reaching the end then do the following
+                console.log("NEARLY AT THE END OF THE TINGS, CHECKING FOR NEW TINGS");
                 GetLatesingTings();
             }
         },
@@ -210,7 +212,7 @@ function init_carousel() {
         onSliderLoad: function () {
             setUpMapsOverLaysAndDisplayAt12MIntervals(); // every 12 seconds set up new Info window content
             initialize();                                // every 12 seconds display new map with Info window content
-            setTingsCounter(LODGEJson.length);
+            //setTingsCounter(LODGEJson.length);
             // get active item 
             // remove active class on last item
             if (reload == false) {
@@ -228,9 +230,11 @@ function init_carousel() {
     });
 
     function AppendItemsOnToSlider() {
-        console.log("appending Items To slider");
         if (LATESTingsJSON.length > 0) {
+            console.log("APPENDING ITEMS ONTO THE SLIDER");
             populateTingsHtml(LATESTingsJSON, true);
+        } else {
+            console.log("NOT ITEMS TO APPEND");
         }
     }
 }
@@ -273,6 +277,9 @@ function populateTingsHtml(tings, sliderReload) {
 }
 
 function SetLatestTingDateAndParkGuid(tingDate, parkid) {
+    console.log("LATEST TING DATE AND PARK ID");
+    console.log(tingDate);
+    console.log(parkid);
     latestTingDate = tingDate;
     parkGuid = parkid;
 }
@@ -354,7 +361,7 @@ function myStopFunction() {
     counter = 0;
     clearInterval(myVar);
     clearInterval(mapsTimeoutVariable);
-    console.log("STOPPED!!!!!");
+    console.log("STOP MAP OVERLAY ITERATION");
     //setUpDisplayAllMarkersInOneMap();
     //UpdateKrugerFlag();
     //showHideTingsCarousel("hidden");
@@ -547,7 +554,6 @@ $(document).ready(function () {
     //console.log(LODGEJson);
 
     rememberLodgeName();
-    setIndexOfLastTing();
     populateTingsHtml(LODGEJson, false);
     init_carousel();
 });
